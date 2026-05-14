@@ -1,2054 +1,252 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ABHIN | International Business Consultancy Platform</title>
-    <meta
-      name="description"
-      content="ABHIN is a UAE-based international business consultancy platform focused on governance, strategy, AI transformation, and global growth support."
-    />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://www.abhin.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="ABHIN | International Business Consultancy Platform" />
-    <meta
-      property="og:description"
-      content="ABHIN helps businesses improve governance, operations, market expansion, and AI-enabled execution from the UAE to global markets."
-    />
-    <meta property="og:url" content="https://www.abhin.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ABHIN | International Business Consultancy Platform" />
-    <meta
-      name="twitter:description"
-      content="Governance, business transformation, AI strategy, and international growth support through ABHIN's UAE-based platform."
-    />
-    <style>
-      :root {
-        --bg: #f4efe6;
-        --bg-alt: #ece5d8;
-        --surface: rgba(255, 255, 255, 0.72);
-        --surface-strong: rgba(255, 255, 255, 0.92);
-        --ink: #0f1b2b;
-        --ink-soft: #425269;
-        --accent: #1c7c6f;
-        --accent-deep: #145247;
-        --gold: #af8a44;
-        --line: rgba(15, 27, 43, 0.12);
-        --shadow: 0 24px 60px rgba(17, 27, 41, 0.12);
-        --radius-xl: 28px;
-        --radius-lg: 22px;
-        --radius-md: 16px;
-        --content: min(1180px, calc(100vw - 40px));
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Segoe UI", "Tahoma", sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(circle at top left, rgba(28, 124, 111, 0.12), transparent 30%),
-          radial-gradient(circle at 90% 15%, rgba(175, 138, 68, 0.18), transparent 20%),
-          linear-gradient(180deg, #f7f3eb 0%, var(--bg) 100%);
-      }
-
-      img,
-      video {
-        max-width: 100%;
-        display: block;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      .shell {
-        width: var(--content);
-        margin: 0 auto;
-      }
-
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-        backdrop-filter: blur(14px);
-        background: rgba(244, 239, 230, 0.8);
-        border-bottom: 1px solid rgba(15, 27, 43, 0.08);
-      }
-
-      .topbar-inner {
-        width: var(--content);
-        margin: 0 auto;
-        padding: 18px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .brand-mark {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, var(--accent-deep), var(--accent));
-        color: white;
-        display: grid;
-        place-items: center;
-        font-weight: 800;
-        font-size: 1.3rem;
-        letter-spacing: 0.08em;
-        box-shadow: 0 12px 26px rgba(20, 82, 71, 0.24);
-      }
-
-      .brand-copy {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .brand-copy strong {
-        font-size: 1rem;
-        letter-spacing: 0.14em;
-      }
-
-      .brand-copy span {
-        font-size: 0.8rem;
-        color: var(--ink-soft);
-      }
-
-      nav {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        flex-wrap: wrap;
-      }
-
-      nav a,
-      nav button,
-      .lang-toggle {
-        border: none;
-        background: none;
-        text-decoration: none;
-        color: var(--ink);
-        font: inherit;
-        padding: 8px 10px;
-        border-radius: 999px;
-        cursor: pointer;
-      }
-
-      nav a:hover,
-      nav button:hover,
-      .lang-toggle:hover {
-        background: rgba(15, 27, 43, 0.06);
-      }
-
-      .hero {
-        padding: 52px 0 28px;
-      }
-
-      .hero-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.9fr);
-        gap: 26px;
-        align-items: stretch;
-      }
-
-      .hero-main,
-      .hero-side,
-      .panel,
-      .info-card,
-      .contact-card,
-      .chat-card,
-      .cookie-banner {
-        border: 1px solid var(--line);
-        background: var(--surface);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(12px);
-      }
-
-      .hero-main {
-        border-radius: 36px;
-        padding: 38px;
-        overflow: hidden;
-        position: relative;
-        background:
-          linear-gradient(135deg, rgba(15, 27, 43, 0.92), rgba(28, 124, 111, 0.9)),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-        color: white;
-      }
-
-      .hero-main::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.06) 45%, transparent 100%),
-          radial-gradient(circle at 85% 20%, rgba(175, 138, 68, 0.32), transparent 24%);
-        pointer-events: none;
-      }
-
-      .eyebrow,
-      .section-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 14px;
-        border-radius: 999px;
-        font-size: 0.82rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .eyebrow {
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-      }
-
-      .section-eyebrow {
-        background: rgba(28, 124, 111, 0.08);
-        color: var(--accent-deep);
-        border: 1px solid rgba(28, 124, 111, 0.16);
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin: 0;
-      }
-
-      h1 {
-        margin-top: 20px;
-        font-size: clamp(2.8rem, 7vw, 5.4rem);
-        line-height: 0.96;
-        max-width: 11ch;
-      }
-
-      .hero-lead {
-        margin-top: 24px;
-        max-width: 62ch;
-        font-size: 1.08rem;
-        line-height: 1.75;
-        color: rgba(255, 255, 255, 0.86);
-      }
-
-      .hero-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 26px;
-      }
-
-      .pill {
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        font-size: 0.9rem;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 30px;
-      }
-
-      .button,
-      .button.secondary,
-      .button.ghost {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 48px;
-        padding: 0 18px;
-        border-radius: 999px;
-        font-weight: 600;
-        text-decoration: none;
-        border: 1px solid transparent;
-        cursor: pointer;
-      }
-
-      .button {
-        background: linear-gradient(135deg, var(--gold), #d0ae6a);
-        color: #1f1a11;
-      }
-
-      .button.secondary {
-        background: rgba(255, 255, 255, 0.12);
-        color: white;
-        border-color: rgba(255, 255, 255, 0.16);
-      }
-
-      .button.ghost {
-        background: transparent;
-        border-color: rgba(15, 27, 43, 0.12);
-        color: var(--ink);
-      }
-
-      .hero-metrics {
-        margin-top: 32px;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .metric {
-        padding: 16px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-      }
-
-      .metric strong {
-        display: block;
-        font-size: 1.4rem;
-      }
-
-      .metric span {
-        display: block;
-        margin-top: 8px;
-        color: rgba(255, 255, 255, 0.8);
-        line-height: 1.5;
-        font-size: 0.92rem;
-      }
-
-      .hero-side {
-        border-radius: 30px;
-        padding: 30px;
-        display: grid;
-        gap: 18px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.76));
-      }
-
-      .hero-side h2 {
-        font-size: clamp(1.9rem, 4vw, 2.8rem);
-        line-height: 1.02;
-      }
-
-      .hero-side p {
-        color: var(--ink-soft);
-        line-height: 1.75;
-      }
-
-      .signal-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .signal {
-        border-radius: 18px;
-        background: var(--surface-strong);
-        border: 1px solid rgba(15, 27, 43, 0.08);
-        padding: 16px;
-      }
-
-      .signal strong {
-        display: block;
-        font-size: 1.1rem;
-      }
-
-      .signal span {
-        display: block;
-        margin-top: 8px;
-        font-size: 0.92rem;
-        line-height: 1.55;
-        color: var(--ink-soft);
-      }
-
-      .summary-band {
-        padding: 18px 0 8px;
-      }
-
-      .summary-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .summary-card {
-        padding: 18px;
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.7);
-        border: 1px solid rgba(15, 27, 43, 0.08);
-      }
-
-      .summary-card strong {
-        display: block;
-        font-size: 1.15rem;
-      }
-
-      .summary-card span {
-        display: block;
-        margin-top: 8px;
-        line-height: 1.55;
-        color: var(--ink-soft);
-      }
-
-      .showcase {
-        padding: 42px 0 24px;
-      }
-
-      .showcase-grid {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 20px;
-      }
-
-      .visual-panel {
-        position: relative;
-        border-radius: 34px;
-        overflow: hidden;
-        min-height: 500px;
-        background: #0f1b2b;
-      }
-
-      .visual-panel img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: saturate(1.02) contrast(1.02);
-      }
-
-      .visual-panel::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(15, 27, 43, 0.1), rgba(15, 27, 43, 0.86));
-      }
-
-      .visual-copy {
-        position: absolute;
-        left: 28px;
-        right: 28px;
-        bottom: 28px;
-        z-index: 1;
-        color: white;
-      }
-
-      .visual-copy h2 {
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        line-height: 1;
-      }
-
-      .visual-copy p {
-        margin-top: 14px;
-        max-width: 46ch;
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.86);
-      }
-
-      .stack {
-        display: grid;
-        gap: 16px;
-      }
-
-      .info-card {
-        border-radius: 28px;
-        padding: 24px;
-      }
-
-      .info-card h3 {
-        margin-top: 14px;
-        font-size: 1.4rem;
-      }
-
-      .info-card p,
-      .info-card li,
-      .panel p,
-      .panel li,
-      .contact-card p,
-      .contact-card li,
-      .chat-card p,
-      .cookie-banner p {
-        line-height: 1.7;
-        color: var(--ink-soft);
-      }
-
-      .info-card ul,
-      .panel ul,
-      .contact-card ul {
-        margin: 16px 0 0;
-        padding-left: 18px;
-      }
-
-      .content-section {
-        padding: 30px 0;
-      }
-
-      .section-grid {
-        display: grid;
-        grid-template-columns: 0.95fr 1.05fr;
-        gap: 24px;
-        align-items: start;
-      }
-
-      .section-copy {
-        display: grid;
-        gap: 18px;
-      }
-
-      .section-copy h2 {
-        font-size: clamp(2rem, 4.5vw, 3.6rem);
-        line-height: 1.02;
-      }
-
-      .section-copy p {
-        color: var(--ink-soft);
-        line-height: 1.8;
-        font-size: 1rem;
-      }
-
-      .panel {
-        border-radius: 30px;
-        padding: 26px;
-      }
-
-      .panel-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 18px;
-      }
-
-      .mini-panel {
-        border-radius: 18px;
-        padding: 16px;
-        background: var(--surface-strong);
-        border: 1px solid rgba(15, 27, 43, 0.08);
-      }
-
-      .mini-panel strong {
-        display: block;
-        margin-bottom: 8px;
-        font-size: 1rem;
-      }
-
-      .offer-grid,
-      .framework-grid,
-      .notes-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .offer-card,
-      .framework-card,
-      .note-card {
-        border-radius: 26px;
-        padding: 24px;
-        border: 1px solid rgba(15, 27, 43, 0.08);
-        background: rgba(255, 255, 255, 0.7);
-        box-shadow: 0 16px 36px rgba(15, 27, 43, 0.07);
-      }
-
-      .offer-no,
-      .framework-no {
-        display: inline-flex;
-        width: 44px;
-        height: 44px;
-        border-radius: 14px;
-        align-items: center;
-        justify-content: center;
-        background: rgba(28, 124, 111, 0.14);
-        color: var(--accent-deep);
-        font-weight: 700;
-      }
-
-      .offer-card h3,
-      .framework-card h3,
-      .note-card h3 {
-        margin-top: 16px;
-        font-size: 1.28rem;
-      }
-
-      .offer-card p,
-      .framework-card p,
-      .note-card p,
-      .note-card li {
-        margin-top: 12px;
-        color: var(--ink-soft);
-        line-height: 1.75;
-      }
-
-      .framework-card ul,
-      .note-card ul {
-        margin: 14px 0 0;
-        padding-left: 18px;
-      }
-
-      .wide-panel {
-        margin-top: 18px;
-        border-radius: 30px;
-        padding: 28px;
-        background: linear-gradient(135deg, rgba(20, 82, 71, 0.96), rgba(15, 27, 43, 0.96));
-        color: white;
-      }
-
-      .wide-panel p,
-      .wide-panel li {
-        color: rgba(255, 255, 255, 0.84);
-      }
-
-      .wide-panel-grid {
-        display: grid;
-        grid-template-columns: 0.95fr 1.05fr;
-        gap: 20px;
-        align-items: start;
-      }
-
-      .steps {
-        display: grid;
-        gap: 12px;
-      }
-
-      .step {
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.08);
-        padding: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-      }
-
-      .step strong {
-        display: block;
-        font-size: 1rem;
-        margin-bottom: 8px;
-      }
-
-      .contact-section {
-        padding: 32px 0 90px;
-      }
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 24px;
-      }
-
-      .contact-card,
-      .chat-card {
-        border-radius: 30px;
-        padding: 28px;
-      }
-
-      .notice-list {
-        display: grid;
-        gap: 12px;
-        margin-top: 20px;
-      }
-
-      .notice-item {
-        border-radius: 18px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.8);
-        border: 1px solid rgba(15, 27, 43, 0.08);
-      }
-
-      form {
-        display: grid;
-        gap: 12px;
-        margin-top: 24px;
-      }
-
-      input,
-      textarea,
-      select {
-        width: 100%;
-        border: 1px solid rgba(15, 27, 43, 0.12);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.92);
-        padding: 14px 15px;
-        color: var(--ink);
-        font: inherit;
-      }
-
-      textarea {
-        min-height: 132px;
-        resize: vertical;
-      }
-
-      .contact-points {
-        display: grid;
-        gap: 12px;
-        margin-top: 24px;
-      }
-
-      .contact-point {
-        padding: 16px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.8);
-        border: 1px solid rgba(15, 27, 43, 0.08);
-      }
-
-      .chat-card {
-        display: grid;
-        gap: 16px;
-        background: linear-gradient(180deg, rgba(15, 27, 43, 0.96), rgba(20, 82, 71, 0.96));
-        color: white;
-      }
-
-      .chat-card p {
-        color: rgba(255, 255, 255, 0.8);
-      }
-
-      .chat-window {
-        border-radius: 22px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        display: grid;
-        gap: 12px;
-      }
-
-      .bubble {
-        max-width: 88%;
-        padding: 12px 14px;
-        border-radius: 18px;
-        line-height: 1.6;
-        font-size: 0.96rem;
-      }
-
-      .bubble.agent {
-        background: rgba(255, 255, 255, 0.12);
-        border-top-left-radius: 6px;
-      }
-
-      .bubble.user {
-        margin-left: auto;
-        background: rgba(175, 138, 68, 0.94);
-        color: #221b10;
-        border-top-right-radius: 6px;
-      }
-
-      .chat-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .chat-actions button {
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        background: rgba(255, 255, 255, 0.08);
-        color: white;
-        border-radius: 999px;
-        padding: 10px 14px;
-        cursor: pointer;
-        font: inherit;
-      }
-
-      .chat-input-row {
-        display: flex;
-        gap: 10px;
-      }
-
-      .chat-input-row input {
-        background: rgba(255, 255, 255, 0.14);
-        color: white;
-        border-color: rgba(255, 255, 255, 0.14);
-      }
-
-      .chat-input-row input::placeholder {
-        color: rgba(255, 255, 255, 0.55);
-      }
-
-      .cookie-banner {
-        position: fixed;
-        left: 20px;
-        bottom: 20px;
-        z-index: 40;
-        width: min(390px, calc(100vw - 32px));
-        padding: 18px;
-        border-radius: 24px;
-        background: rgba(255, 255, 255, 0.92);
-      }
-
-      .cookie-banner strong {
-        display: block;
-        margin-bottom: 8px;
-      }
-
-      footer {
-        padding: 28px 20px 44px;
-        color: var(--ink-soft);
-        text-align: center;
-        font-size: 0.94rem;
-      }
-
-      footer .footer-links {
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-
-      .hidden {
-        display: none !important;
-      }
-
-      @media (max-width: 1020px) {
-        .hero-grid,
-        .showcase-grid,
-        .section-grid,
-        .wide-panel-grid,
-        .contact-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .offer-grid,
-        .framework-grid,
-        .notes-grid,
-        .summary-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 720px) {
-        .topbar-inner {
-          align-items: flex-start;
-        }
-
-        nav {
-          width: 100%;
-          justify-content: space-between;
-          gap: 8px;
-        }
-
-        nav a,
-        nav button,
-        .lang-toggle {
-          padding-inline: 8px;
-        }
-
-        .hero-main,
-        .hero-side,
-        .panel,
-        .info-card,
-        .contact-card,
-        .chat-card {
-          padding: 22px;
-        }
-
-        h1 {
-          max-width: none;
-        }
-
-        .hero-metrics,
-        .signal-grid,
-        .summary-grid,
-        .panel-grid,
-        .offer-grid,
-        .framework-grid,
-        .notes-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .button,
-        .button.secondary,
-        .button.ghost {
-          width: 100%;
-        }
-
-        .hero-actions,
-        .chat-actions,
-        .chat-input-row {
-          flex-direction: column;
-        }
-
-        .cookie-banner {
-          left: 16px;
-          right: 16px;
-          bottom: 16px;
-          width: auto;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="brand">
-          <div class="brand-mark">A</div>
-          <div class="brand-copy">
-            <strong>ABHIN</strong>
-            <span data-i18n="brandSub">International business and consultancy platform</span>
-          </div>
-        </div>
-        <nav>
-          <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#services" data-i18n="navServices">Services</a>
-          <a href="#framework" data-i18n="navFramework">Framework</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-          <button type="button" class="lang-toggle" id="langToggle">AR</button>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="shell hero-grid">
-          <div class="hero-main">
-            <div class="eyebrow" data-i18n="heroBadge">UAE-based strategy, governance, and AI advisory</div>
-            <h1 data-i18n="heroTitle">Built for businesses that want structure, momentum, and serious execution.</h1>
-            <p class="hero-lead" data-i18n="heroLead">
-              ABHIN supports organizations that need sharper operating discipline, stronger governance,
-              better market positioning, and practical AI-enabled transformation without losing control
-              of the business.
-            </p>
-            <div class="hero-pills">
-              <span class="pill" data-i18n="pill1">Governance and operating control</span>
-              <span class="pill" data-i18n="pill2">Business transformation and AI strategy</span>
-              <span class="pill" data-i18n="pill3">Static publish-ready homepage</span>
-            </div>
-            <div class="hero-actions">
-              <a class="button" href="#services" data-i18n="primaryCta">Explore Services</a>
-              <a class="button secondary" href="#contact" data-i18n="secondaryCta">Contact ABHIN</a>
-            </div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <strong data-i18n="metric1Title">Strategic</strong>
-                <span data-i18n="metric1Copy">Focused on business clarity, decision quality, and execution discipline.</span>
-              </div>
-              <div class="metric">
-                <strong data-i18n="metric2Title">Global</strong>
-                <span data-i18n="metric2Copy">Positioned for international partnerships, expansion, and cross-border opportunity.</span>
-              </div>
-              <div class="metric">
-                <strong data-i18n="metric3Title">Practical AI</strong>
-                <span data-i18n="metric3Copy">Applied where it improves workflow, reporting, coordination, and operating leverage.</span>
-              </div>
-            </div>
-          </div>
-
-          <aside class="hero-side">
-            <div class="section-eyebrow" data-i18n="statusEyebrow">Current rollout status</div>
-            <h2 data-i18n="statusTitle">Homepage rebuilt and ready for production publishing.</h2>
-            <p data-i18n="statusCopy">
-              The site now presents ABHIN as a credible international business consultancy rather than
-              a generic placeholder. Messaging is sharper, structure is more intentional, and the page
-              is ready for clean static deployment.
-            </p>
-            <div class="signal-grid">
-              <div class="signal">
-                <strong data-i18n="signal1Title">Brand Position</strong>
-                <span data-i18n="signal1Copy">Business consultancy, governance, transformation, and global operating support.</span>
-              </div>
-              <div class="signal">
-                <strong data-i18n="signal2Title">Audience</strong>
-                <span data-i18n="signal2Copy">Corporate buyers, partners, stakeholders, and serious inbound opportunities.</span>
-              </div>
-              <div class="signal">
-                <strong data-i18n="signal3Title">Delivery Format</strong>
-                <span data-i18n="signal3Copy">Single-file static page with multilingual support and interactive contact flow.</span>
-              </div>
-              <div class="signal">
-                <strong data-i18n="signal4Title">Next Requirement</strong>
-                <span data-i18n="signal4Copy">Attach the correct production domain and allow public access to the site.</span>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="summary-band">
-        <div class="shell summary-grid">
-          <div class="summary-card">
-            <strong data-i18n="summary1Title">Governance</strong>
-            <span data-i18n="summary1Copy">Sharper structure, cleaner decisions, and more accountable operating systems.</span>
-          </div>
-          <div class="summary-card">
-            <strong data-i18n="summary2Title">Transformation</strong>
-            <span data-i18n="summary2Copy">Operational improvement supported by disciplined technology adoption.</span>
-          </div>
-          <div class="summary-card">
-            <strong data-i18n="summary3Title">Expansion</strong>
-            <span data-i18n="summary3Copy">International growth support, partnership development, and market positioning.</span>
-          </div>
-          <div class="summary-card">
-            <strong data-i18n="summary4Title">Execution</strong>
-            <span data-i18n="summary4Copy">Practical delivery that helps teams move from strategy into consistent action.</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="showcase">
-        <div class="shell showcase-grid">
-          <div class="visual-panel">
-            <img
-              src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80"
-              alt="Dubai skyline"
-            />
-            <div class="visual-copy">
-              <div class="section-eyebrow" data-i18n="uaeEyebrow">UAE foundation</div>
-              <h2 data-i18n="uaeTitle">Rooted in the UAE, built for international business execution.</h2>
-              <p data-i18n="uaeCopy">
-                ABHIN is positioned to reflect the UAE's modern identity: credible, connected,
-                commercially ambitious, and serious about disciplined growth.
-              </p>
-            </div>
-          </div>
-
-          <div class="stack">
-            <article class="info-card">
-              <div class="section-eyebrow" data-i18n="note1Title">Important publishing note</div>
-              <p data-i18n="note1Copy">
-                The public domain must point to the ABHIN Vercel project rather than the unrelated existing website.
-              </p>
-            </article>
-            <article class="info-card">
-              <div class="section-eyebrow" data-i18n="note2Title">Access note</div>
-              <p data-i18n="note2Copy">
-                Vercel deployment protection must allow the production company site to be publicly reachable.
-              </p>
-            </article>
-            <article class="info-card">
-              <div class="section-eyebrow" data-i18n="note3Title">Positioning note</div>
-              <p data-i18n="note3Copy">
-                The homepage keeps the service model broad enough to support real business development,
-                while still being concrete enough to feel trustworthy to corporate visitors and partners.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="content-section">
-        <div class="shell section-grid">
-          <div class="section-copy">
-            <div class="section-eyebrow" data-i18n="aboutEyebrow">About ABHIN</div>
-            <h2 data-i18n="aboutTitle">A business platform designed around clarity, discipline, and long-term value.</h2>
-            <p data-i18n="aboutCopy1">
-              ABHIN is positioned as an international business consultancy platform that helps organizations
-              improve how they are structured, led, reported, and scaled.
-            </p>
-            <p data-i18n="aboutCopy2">
-              The focus is not abstract consulting language. The message is operational: stronger governance,
-              more reliable execution, improved internal capability, better customer value, and cleaner growth decisions.
-            </p>
-          </div>
-
-          <div class="panel">
-            <div class="section-eyebrow" data-i18n="aboutPanelEyebrow">What the homepage now communicates</div>
-            <div class="panel-grid">
-              <div class="mini-panel">
-                <strong data-i18n="aboutPanel1Title">Serious corporate tone</strong>
-                <p data-i18n="aboutPanel1Copy">The site reads like a business platform for decision-makers, not a demo page.</p>
-              </div>
-              <div class="mini-panel">
-                <strong data-i18n="aboutPanel2Title">Commercial credibility</strong>
-                <p data-i18n="aboutPanel2Copy">Services are framed around real value creation rather than vague general claims.</p>
-              </div>
-              <div class="mini-panel">
-                <strong data-i18n="aboutPanel3Title">Clear direction</strong>
-                <p data-i18n="aboutPanel3Copy">The structure makes it easy to understand what ABHIN does and who it helps.</p>
-              </div>
-              <div class="mini-panel">
-                <strong data-i18n="aboutPanel4Title">Production readiness</strong>
-                <p data-i18n="aboutPanel4Copy">The page is designed to be shipped as a clean static production homepage.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" class="content-section">
-        <div class="shell">
-          <div class="section-copy" style="margin-bottom: 22px; max-width: 760px;">
-            <div class="section-eyebrow" data-i18n="servicesEyebrow">Service pillars</div>
-            <h2 data-i18n="servicesTitle">Three service lanes that make the offer feel broad, credible, and commercially useful.</h2>
-            <p data-i18n="servicesCopy">
-              The homepage groups the offer into practical business categories so visitors can understand the platform quickly,
-              while still leaving room for future expansion as ABHIN's service mix grows.
-            </p>
-          </div>
-          <div class="offer-grid">
-            <article class="offer-card">
-              <div class="offer-no">01</div>
-              <h3 data-i18n="offer1Title">Strategic Business Advisory</h3>
-              <p data-i18n="offer1Copy">
-                Advisory support for business structure, strategic direction, governance, planning, and operating improvement.
-              </p>
-              <ul>
-                <li data-i18n="offer1Item1">Business structure and strategic planning</li>
-                <li data-i18n="offer1Item2">Governance and decision support</li>
-                <li data-i18n="offer1Item3">Performance improvement frameworks</li>
-              </ul>
-            </article>
-            <article class="offer-card">
-              <div class="offer-no">02</div>
-              <h3 data-i18n="offer2Title">Transformation and AI Enablement</h3>
-              <p data-i18n="offer2Copy">
-                Practical operating transformation using better workflows, clearer reporting, digital tools, and AI-supported execution.
-              </p>
-              <ul>
-                <li data-i18n="offer2Item1">Workflow improvement and operating design</li>
-                <li data-i18n="offer2Item2">Decision and reporting cadence</li>
-                <li data-i18n="offer2Item3">Applied AI support for business teams</li>
-              </ul>
-            </article>
-            <article class="offer-card">
-              <div class="offer-no">03</div>
-              <h3 data-i18n="offer3Title">International Growth and Partnerships</h3>
-              <p data-i18n="offer3Copy">
-                Support for business development, market positioning, partnership building, and international commercial expansion.
-              </p>
-              <ul>
-                <li data-i18n="offer3Item1">Market-entry and growth positioning</li>
-                <li data-i18n="offer3Item2">Cross-border partnership support</li>
-                <li data-i18n="offer3Item3">Commercial relationship development</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="framework" class="content-section">
-        <div class="shell">
-          <div class="section-copy" style="margin-bottom: 22px; max-width: 780px;">
-            <div class="section-eyebrow" data-i18n="frameworkEyebrow">Operating framework</div>
-            <h2 data-i18n="frameworkTitle">The homepage now expresses a clearer logic for how ABHIN works.</h2>
-            <p data-i18n="frameworkCopy">
-              The platform narrative is built around a sequence that business stakeholders recognize quickly:
-              strengthen structure, sharpen execution, support growth, and improve commercial outcomes.
-            </p>
-          </div>
-          <div class="framework-grid">
-            <article class="framework-card">
-              <div class="framework-no">1</div>
-              <h3 data-i18n="step1Title">Establish control</h3>
-              <p data-i18n="step1Copy">Clarify governance, accountability, and operating decision structures.</p>
-            </article>
-            <article class="framework-card">
-              <div class="framework-no">2</div>
-              <h3 data-i18n="step2Title">Align strategy</h3>
-              <p data-i18n="step2Copy">Connect planning, priorities, commercial direction, and leadership rhythm.</p>
-            </article>
-            <article class="framework-card">
-              <div class="framework-no">3</div>
-              <h3 data-i18n="step3Title">Improve execution</h3>
-              <p data-i18n="step3Copy">Improve workflows, communication discipline, reporting flow, and technology use.</p>
-            </article>
-          </div>
-
-          <div class="wide-panel">
-            <div class="wide-panel-grid">
-              <div>
-                <div class="section-eyebrow" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.14);" data-i18n="launchEyebrow">Launch implication</div>
-                <h3 style="margin-top: 16px; font-size: 2rem; line-height: 1.05;" data-i18n="launchTitle">The site is ready to function as a clean public-facing corporate homepage.</h3>
-                <p style="margin-top: 14px;" data-i18n="launchCopy">
-                  Remaining work is no longer homepage design. It is mostly operational: connect the correct public domain,
-                  allow public access, and wire in any real backend or human follow-up path later.
-                </p>
-              </div>
-              <div class="steps">
-                <div class="step">
-                  <strong data-i18n="launchStep1Title">Domain routing</strong>
-                  <p data-i18n="launchStep1Copy">Point the public ABHIN domain to the intended Vercel project.</p>
-                </div>
-                <div class="step">
-                  <strong data-i18n="launchStep2Title">Public access</strong>
-                  <p data-i18n="launchStep2Copy">Ensure production access is not blocked behind deployment protection.</p>
-                </div>
-                <div class="step">
-                  <strong data-i18n="launchStep3Title">Backend later</strong>
-                  <p data-i18n="launchStep3Copy">Add CRM, AI, analytics, or contact routing when operationally ready.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <div class="shell">
-          <div class="section-copy" style="margin-bottom: 22px; max-width: 760px;">
-            <div class="section-eyebrow" data-i18n="readinessEyebrow">Readiness notes</div>
-            <h2 data-i18n="readinessTitle">What still matters most for a real launch is operational correctness, not more homepage design.</h2>
-            <p data-i18n="readinessCopy">
-              The visual and messaging layer is already strong enough for a first public release. The main risks now sit in routing,
-              accessibility, and whether visitors land on the correct public production site.
-            </p>
-          </div>
-          <div class="notes-grid">
-            <article class="note-card">
-              <h3 data-i18n="compliance1Title">Domain correctness</h3>
-              <p data-i18n="compliance1Copy">The intended company domain should resolve to this project rather than a different unrelated site.</p>
-            </article>
-            <article class="note-card">
-              <h3 data-i18n="compliance2Title">Production accessibility</h3>
-              <p data-i18n="compliance2Copy">The production site must also be set to public access on Vercel rather than remaining behind deployment protection.</p>
-            </article>
-            <article class="note-card">
-              <h3 data-i18n="compliance3Title">Inquiry handling</h3>
-              <p data-i18n="compliance3Copy">Form and chat interactions can remain lightweight until ABHIN is ready to connect real lead-routing systems.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-section">
-        <div class="shell contact-grid">
-          <div class="contact-card">
-            <div class="section-eyebrow" data-i18n="contactEyebrow">Contact ABHIN</div>
-            <h2 style="margin-top: 18px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.04;" data-i18n="contactTitle">Start a serious business conversation.</h2>
-            <p style="margin-top: 16px;" data-i18n="contactCopy">
-              The current site positions ABHIN for corporate inquiries, strategic partnerships, governance discussions,
-              business transformation needs, and international commercial conversations.
-            </p>
-
-            <div class="notice-list">
-              <div class="notice-item">
-                <strong data-i18n="contactPoint1Title">Headquarters signal</strong>
-                <p data-i18n="contactPoint1Copy">Ajman Free Zone, Ajman, United Arab Emirates</p>
-              </div>
-              <div class="notice-item">
-                <strong data-i18n="contactPoint2Title">Current site behavior</strong>
-                <p data-i18n="contactPoint2Copy">The inquiry form works as a polished front-end placeholder until backend routing is connected.</p>
-              </div>
-              <div class="notice-item">
-                <strong data-i18n="contactPoint3Title">Recommended next integration</strong>
-                <p data-i18n="contactPoint3Copy">Connect the form and chat flow to real email, CRM, or human follow-up channels once the launch path is finalized.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-card">
-            <div class="section-eyebrow" data-i18n="formEyebrow">Corporate inquiry</div>
-            <form id="leadForm">
-              <input id="name" type="text" required data-placeholder="namePlaceholder" placeholder="Full name" />
-              <input id="company" type="text" required data-placeholder="companyPlaceholder" placeholder="Company / organization" />
-              <input id="email" type="email" required data-placeholder="emailPlaceholder" placeholder="Work email" />
-              <select id="interest" required>
-                <option value="" data-i18n="interestPlaceholder">Select inquiry type</option>
-                <option data-i18n="interest1">Strategic business advisory</option>
-                <option data-i18n="interest2">AI transformation support</option>
-                <option data-i18n="interest3">Governance and operating model</option>
-                <option data-i18n="interest4">International partnership or expansion</option>
-              </select>
-              <textarea id="message" required data-placeholder="messagePlaceholder" placeholder="Brief message"></textarea>
-              <button class="button" type="submit" data-i18n="submitCta">Submit inquiry</button>
-            </form>
-
-            <div class="contact-points">
-              <div class="contact-point">
-                <strong data-i18n="legalTitle">Communication note</strong>
-                <p data-i18n="legalCopy">This website is positioned for general corporate communication, not regulated financial or legal solicitation.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="shell" style="margin-top: 24px;">
-          <div class="chat-card">
-            <div>
-              <div class="section-eyebrow" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.14);" data-i18n="chatEyebrow">Interactive assistant</div>
-              <h2 style="margin-top: 18px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.04;" data-i18n="chatTitle">A multilingual contact layer that can later connect to a real AI or support workflow.</h2>
-              <p style="margin-top: 16px;" data-i18n="chatCopy">
-                For now the assistant demonstrates how ABHIN can handle structured first-contact interactions in a modern, polished way.
-              </p>
-            </div>
-            <div class="chat-window" id="chatWindow"></div>
-            <div class="chat-actions" id="quickReplies"></div>
-            <div class="chat-input-row">
-              <input id="chatInput" type="text" placeholder="Type your message" data-placeholder="chatPlaceholder" />
-              <button class="button" type="button" id="chatSend" data-i18n="chatSend">Send</button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <div class="cookie-banner" id="cookieBanner">
-      <strong data-i18n="cookieTitle">Cookie and privacy notice</strong>
-      <p data-i18n="cookieCopy">
-        This experience may use analytics, CRM, and AI-assisted communication tools once the production stack is connected.
-      </p>
-      <button class="button ghost" type="button" id="cookieAccept" data-i18n="cookieButton">Accept</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABHIN | International Business & Consultancy Platform</title>
+  <meta name="description" content="ABHIN is an international business, consultancy, governance, AI transformation and strategic advisory platform based in Ajman Free Zone, UAE." />
+  <style>
+    :root{
+      --ink:#0F1720;--deep:#111827;--slate:#1E293B;--steel:#334155;--bronze:#9A7B4F;--gold:#C6A46B;
+      --sand:#F7F5F0;--cream:#FCFBF8;--pearl:#F3F0EA;--line:#E5DED1;--muted:#64748B;--white:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--sand);color:var(--ink)}
+    .container{width:min(1220px,calc(100% - 42px));margin:0 auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(15,23,32,.9);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:13px}
+    .logo{width:46px;height:46px;border-radius:14px;background:var(--cream);color:var(--deep);display:flex;align-items:center;justify-content:center;font-weight:950;font-size:20px}
+    .brand-title{color:white;font-weight:950;font-size:20px;letter-spacing:1.4px}
+    .brand-sub{color:#D7CCBA;font-size:12px}
+    nav{display:flex;gap:22px;font-size:14px;align-items:center;flex-wrap:wrap}
+    nav a{color:#F3EFE6;text-decoration:none;font-weight:750}
+    select{background:rgba(255,255,255,.1);color:white;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 12px;font-weight:800}
+    select option{color:var(--ink)}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--deep) 0%,var(--slate) 40%,var(--steel) 72%,var(--bronze) 100%);color:white}
+    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:72px 72px;opacity:.28}
+    .hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(198,164,107,.22),transparent 28%),radial-gradient(circle at 10% 80%,rgba(255,255,255,.08),transparent 30%)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:46px;padding:98px 0 108px}
+    .badge{display:inline-flex;border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:10px 15px;color:#EFE6D6;font-weight:800;font-size:14px;margin-bottom:26px}
+    h1{font-size:clamp(42px,5.8vw,78px);line-height:.97;margin:0;letter-spacing:-2.4px;color:white;max-width:900px}
+    .hero p{margin-top:28px;max-width:720px;color:#EFE6D6;font-size:18.5px;line-height:1.85}
+    .actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .pulse{display:flex;gap:12px;align-items:center;margin-right:10px}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--gold);box-shadow:0 0 18px rgba(198,164,107,.9)}
+    .pulse span{color:#D6DCE5;font-size:14px;letter-spacing:1px}
+    button,.btn{border:none;background:var(--bronze);color:white;padding:14px 22px;border-radius:999px;font-weight:800;cursor:pointer;letter-spacing:.2px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+    .btn.secondary{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
+    .card{background:var(--cream);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 24px 70px rgba(31,42,36,.08)}
+    .card.dark{background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.16);box-shadow:none}
+    .label{color:var(--bronze);font-size:12px;font-weight:900;letter-spacing:4.5px;text-transform:uppercase;margin:0}
+    .card.dark h2{color:white;font-size:34px;line-height:1.1;margin:18px 0 10px}
+    .card.dark p{color:#EFE6D6;line-height:1.75;font-size:16.5px}
+    .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+    .metric{border:1px solid rgba(255,255,255,.16);border-radius:19px;padding:16px;background:rgba(255,255,255,.08)}
+    .metric strong{color:white;font-size:27px;font-weight:950;display:block}
+    .metric span{color:#D7CCBA;font-size:12px;margin-top:5px;display:block}
+    .strip{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .strip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+    .strip-item{padding:34px 26px;border-right:1px solid var(--line)}
+    .strip-item strong{font-size:38px;font-weight:900;color:var(--deep);display:block}
+    .strip-item span{color:var(--muted);margin-top:8px;line-height:1.5;display:block}
+    .uae{position:relative;overflow:hidden;background:var(--deep)}
+    .uae-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600&auto=format&fit=crop');background-size:cover;background-position:center;opacity:.28}
+    .uae:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,23,32,.92),rgba(15,23,32,.68))}
+    .uae-content{position:relative;z-index:1;padding:120px 0;max-width:760px}
+    .uae h2{color:white;font-size:clamp(42px,5vw,72px);line-height:1.02;margin:18px 0}
+    .uae p{color:#D7CCBA;font-size:20px;line-height:1.9;max-width:680px}
+    .flag-row{display:flex;align-items:center;gap:16px;margin-top:36px}
+    .flag{width:76px;height:48px;border-radius:10px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.35);display:flex;background:white}
+    .flag .red{width:25%;height:100%;background:#CE1126}
+    .flag .rest{width:75%;height:100%}
+    .flag .g{height:33.333%;background:#00732F}.flag .w{height:33.333%;background:white}.flag .b{height:33.333%;background:#000}
+    .flag-text{color:white;font-weight:800;letter-spacing:2px}
+    .video-section{background:var(--deep);padding:90px 0;overflow:hidden}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:42px}
+    .section-head h2{color:white;font-size:clamp(36px,4vw,60px);line-height:1.02;margin:18px 0 0}
+    .section-head div:last-child{color:#D7CCBA;max-width:460px;line-height:1.8;font-size:17px}
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+    .video-card{position:relative;border-radius:30px;overflow:hidden;min-height:520px;background:#000}
+    .video-card.small{border-radius:26px;min-height:248px}
+    video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+    .video-card:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,32,.82),rgba(15,23,32,.15))}
+    .video-text{position:absolute;left:28px;right:28px;bottom:28px;z-index:1}
+    .video-text .kicker{color:var(--gold);font-weight:900;letter-spacing:3px;font-size:12px}
+    .video-text .title{color:white;font-size:38px;font-weight:900;margin-top:10px;line-height:1.1}
+    .small .title{font-size:24px}
+    section.content{padding:88px 0}
+    .two-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:50px;align-items:start}
+    .content h2{font-size:clamp(36px,4vw,56px);line-height:1.02;margin-top:18px;letter-spacing:-1.3px}
+    .copy{color:var(--muted);font-size:18px;line-height:1.9}
+    .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:28px}
+    .pillar{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:15px;font-weight:850;color:var(--deep)}
+    .platforms{background:var(--cream);padding:88px 0}
+    .center{text-align:center;max-width:820px;margin:0 auto}
+    .center h2{font-size:clamp(36px,4vw,56px);line-height:1.04;margin:18px 0 0;letter-spacing:-1.2px}
+    .center p{color:var(--muted);font-size:18px;line-height:1.85}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:52px}
+    .gold-line{width:56px;height:4px;background:linear-gradient(90deg,var(--gold),transparent);border-radius:999px;margin-bottom:22px}
+    .card .num{color:var(--bronze);font-weight:950;font-size:14px;letter-spacing:3px}
+    .card h3{font-size:25px;margin:18px 0 10px;letter-spacing:-.5px}
+    .card p{color:var(--muted);line-height:1.78}
+    .strategy{padding:110px 0 88px}
+    .framework-row{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+    .framework-row:last-child{border-bottom:none}
+    .framework-num{width:42px;height:42px;border-radius:14px;background:var(--deep);color:white;display:flex;align-items:center;justify-content:center;font-weight:950}
+    .cta{background:var(--deep);color:white;padding:110px 0;position:relative;overflow:hidden}
+    .cta-box{border-radius:34px;padding:4px;background:linear-gradient(135deg,var(--bronze),#C7A875)}
+    .cta-inner{border-radius:30px;background:linear-gradient(135deg,#26332B,#344438);padding:44px}
+    .cta h2{color:white;font-size:clamp(33px,4vw,50px);line-height:1.05;margin-top:18px}
+    .cta p{color:#EFE6D6;font-size:18px;line-height:1.85}
+    .contact{padding:110px 0 88px}
+    .notice{margin-bottom:26px;background:var(--pearl);border:1px solid var(--line);border-radius:18px;padding:18px}
+    .notice strong{color:var(--deep);display:block;margin-bottom:8px}
+    .notice div{color:var(--muted);line-height:1.7;font-size:14px}
+    form{display:grid;gap:12px;margin-bottom:28px}
+    input,textarea,form select{border:1px solid var(--line);border-radius:14px;padding:13px;font-size:14px;background:white;color:var(--ink)}
+    textarea{resize:vertical}
+    .contact-gateway{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+    .online-dot{display:inline-flex;align-items:center;gap:8px;color:#166534;font-weight:900;font-size:13px}
+    .online-dot:before{content:"";width:10px;height:10px;border-radius:99px;background:#22C55E;box-shadow:0 0 12px #22C55E}
+    footer{background:#0B1119;color:#B8C0CA;padding:36px 0}
+    footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .chat-toggle{position:fixed;right:22px;bottom:22px;z-index:80;border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.22);padding:16px 18px;background:var(--deep)}
+    .chat{position:fixed;right:22px;bottom:92px;width:min(390px,calc(100vw - 32px));height:590px;background:white;border-radius:28px;box-shadow:0 24px 90px rgba(0,0,0,.25);z-index:90;overflow:hidden;display:none;border:1px solid var(--line)}
+    .chat.open{display:grid;grid-template-rows:auto 1fr auto}
+    .chat-head{background:var(--deep);color:white;padding:18px;display:flex;justify-content:space-between;align-items:center}
+    .chat-title{font-weight:950}.chat-sub{font-size:11px;color:#D7CCBA;margin-top:4px}
+    .chat-close{background:rgba(255,255,255,.1);padding:8px 11px}
+    .chat-body{padding:18px;overflow:auto;background:var(--sand)}
+    .bubble{max-width:85%;padding:12px 14px;border-radius:18px;background:white;margin-bottom:10px;line-height:1.5;font-size:14px;border:1px solid var(--line)}
+    .bubble.user{background:var(--deep);color:white;margin-left:auto;border:none}
+    .quick{display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 12px;background:var(--sand)}
+    .quick button{font-size:12px;padding:9px 10px;background:var(--pearl);color:var(--deep);border:1px solid var(--line)}
+    .chat-input{display:flex;gap:8px;padding:14px;background:white;border-top:1px solid var(--line)}
+    .chat-input input{flex:1}.chat-input button{padding:12px 15px}
+    .cookie{position:fixed;left:22px;bottom:22px;width:min(420px,calc(100vw - 44px));background:white;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 50px rgba(0,0,0,.15);padding:18px;z-index:70}
+    .cookie p{margin:0 0 12px;color:var(--muted);line-height:1.55;font-size:14px}
+    @media(max-width:720px){.hero-grid{padding:70px 0}.metrics{grid-template-columns:1fr}.uae-content{padding:84px 0}.video-card{min-height:420px}nav{display:none}.cta-inner{padding:28px}.chat{right:16px;bottom:84px;height:540px}.cookie{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="#top" style="text-decoration:none">
+        <div class="logo">A</div><div><div class="brand-title">ABHIN</div><div class="brand-sub">International Business Platform</div></div>
+      </a>
+      <nav>
+        <a data-nav="0" href="#about">About</a><a data-nav="1" href="#platforms">Platforms</a><a data-nav="2" href="#strategy">Strategy</a><a data-nav="3" href="#contact">Contact</a>
+        <select id="lang" aria-label="Language"><option value="en">English</option><option value="ar">العربية</option><option value="de">Deutsch</option><option value="fr">Français</option></select>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-      <div data-i18n="footerCopy">ABHIN is an international business, consultancy, and governance platform.</div>
-      <div class="footer-links">
-        <span data-i18n="footerLink1">Privacy policy</span>
-        <span data-i18n="footerLink2">Terms of use</span>
-        <span data-i18n="footerLink3">AI disclaimer</span>
-        <span data-i18n="footerLink4">UAE compliance</span>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge" data-i18n="heroBadge">Independent business and consultancy platform</div>
+          <h1 data-i18n="heroTitle">Building resilient businesses through governance, strategy and operational excellence.</h1>
+          <p data-i18n="heroText">ABHIN is designed as an international business and consultancy platform focused on strategic advisory, corporate governance, transformation, AI-enabled operations and long-term value creation.</p>
+          <div class="actions"><div class="pulse"><div class="dot"></div><span>UAE BASED • GLOBAL OUTLOOK</span></div><a class="btn" href="#platforms" data-i18n="primary">Explore the platform</a><a class="btn secondary" href="#contact" data-i18n="secondary">Contact ABHIN</a></div>
+        </div>
+        <div class="card dark">
+          <p class="label" data-i18n="visionLabel">ABHIN Standard</p>
+          <h2 data-i18n="visionTitle">Institutional discipline. Entrepreneurial execution.</h2>
+          <p data-i18n="visionText">A platform designed around governance, strategic planning, operational control, leadership development and market expansion.</p>
+          <div class="metrics"><div class="metric"><strong>UAE</strong><span>Operational base</span></div><div class="metric"><strong>AI</strong><span>Transformation layer</span></div><div class="metric"><strong>360°</strong><span>Business advisory</span></div><div class="metric"><strong>Global</strong><span>Partnership mindset</span></div></div>
+        </div>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      if (window.location.hostname === "abhin.com") {
-        window.location.replace(`https://www.abhin.com${window.location.pathname}${window.location.search}${window.location.hash}`);
-      }
+    <div class="strip"><div class="container strip-grid"><div class="strip-item"><strong>01</strong><span>Strategy, structure and governance.</span></div><div class="strip-item"><strong>02</strong><span>AI, operations and digital enablement.</span></div><div class="strip-item"><strong>03</strong><span>Partnerships, investment readiness and growth.</span></div><div class="strip-item"><strong>04</strong><span>UAE presence with international ambition.</span></div></div></div>
 
-      const copy = {
-        en: {
-          brandSub: "International business and consultancy platform",
-          navAbout: "About",
-          navServices: "Services",
-          navFramework: "Framework",
-          navContact: "Contact",
-          heroBadge: "UAE-based strategy, governance, and AI advisory",
-          heroTitle: "Built for businesses that want structure, momentum, and serious execution.",
-          heroLead:
-            "ABHIN supports organizations that need sharper operating discipline, stronger governance, better market positioning, and practical AI-enabled transformation without losing control of the business.",
-          pill1: "Governance and operating control",
-          pill2: "Business transformation and AI strategy",
-          pill3: "Static publish-ready homepage",
-          primaryCta: "Explore Services",
-          secondaryCta: "Contact ABHIN",
-          metric1Title: "Strategic",
-          metric1Copy: "Focused on business clarity, decision quality, and execution discipline.",
-          metric2Title: "Global",
-          metric2Copy: "Positioned for international partnerships, expansion, and cross-border opportunity.",
-          metric3Title: "Practical AI",
-          metric3Copy: "Applied where it improves workflow, reporting, coordination, and operating leverage.",
-          statusEyebrow: "Current rollout status",
-          statusTitle: "Homepage rebuilt and ready for production publishing.",
-          statusCopy:
-            "The site now presents ABHIN as a credible international business consultancy rather than a generic placeholder. Messaging is sharper, structure is more intentional, and the page is ready for clean static deployment.",
-          signal1Title: "Brand Position",
-          signal1Copy: "Business consultancy, governance, transformation, and global operating support.",
-          signal2Title: "Audience",
-          signal2Copy: "Corporate buyers, partners, stakeholders, and serious inbound opportunities.",
-          signal3Title: "Delivery Format",
-          signal3Copy: "Single-file static page with multilingual support and interactive contact flow.",
-          signal4Title: "Next Requirement",
-          signal4Copy: "Attach the correct production domain and allow public access to the site.",
-          summary1Title: "Governance",
-          summary1Copy: "Sharper structure, cleaner decisions, and more accountable operating systems.",
-          summary2Title: "Transformation",
-          summary2Copy: "Operational improvement supported by disciplined technology adoption.",
-          summary3Title: "Expansion",
-          summary3Copy: "International growth support, partnership development, and market positioning.",
-          summary4Title: "Execution",
-          summary4Copy: "Practical delivery that helps teams move from strategy into consistent action.",
-          uaeEyebrow: "UAE foundation",
-          uaeTitle: "Rooted in the UAE, built for international business execution.",
-          uaeCopy:
-            "ABHIN is positioned to reflect the UAE's modern identity: credible, connected, commercially ambitious, and serious about disciplined growth.",
-          note1Title: "Important publishing note",
-          note1Copy:
-            "The public domain must point to the ABHIN Vercel project rather than the unrelated existing website.",
-          note2Title: "Access note",
-          note2Copy:
-            "Vercel deployment protection must allow the production company site to be publicly reachable.",
-          note3Title: "Positioning note",
-          note3Copy:
-            "The homepage keeps the service model broad enough to support real business development, while still being concrete enough to feel trustworthy to corporate visitors and partners.",
-          aboutEyebrow: "About ABHIN",
-          aboutTitle: "A business platform designed around clarity, discipline, and long-term value.",
-          aboutCopy1:
-            "ABHIN is positioned as an international business consultancy platform that helps organizations improve how they are structured, led, reported, and scaled.",
-          aboutCopy2:
-            "The focus is not abstract consulting language. The message is operational: stronger governance, more reliable execution, improved internal capability, better customer value, and cleaner growth decisions.",
-          aboutPanelEyebrow: "What the homepage now communicates",
-          aboutPanel1Title: "Serious corporate tone",
-          aboutPanel1Copy: "The site reads like a business platform for decision-makers, not a demo page.",
-          aboutPanel2Title: "Commercial credibility",
-          aboutPanel2Copy: "Services are framed around real value creation rather than vague general claims.",
-          aboutPanel3Title: "Clear direction",
-          aboutPanel3Copy: "The structure makes it easy to understand what ABHIN does and who it helps.",
-          aboutPanel4Title: "Production readiness",
-          aboutPanel4Copy: "The page is designed to be shipped as a clean static production homepage.",
-          servicesEyebrow: "Service pillars",
-          servicesTitle:
-            "Three service lanes that make the offer feel broad, credible, and commercially useful.",
-          servicesCopy:
-            "The homepage groups the offer into practical business categories so visitors can understand the platform quickly, while still leaving room for future expansion as ABHIN's service mix grows.",
-          offer1Title: "Strategic Business Advisory",
-          offer1Copy:
-            "Advisory support for business structure, strategic direction, governance, planning, and operating improvement.",
-          offer1Item1: "Business structure and strategic planning",
-          offer1Item2: "Governance and decision support",
-          offer1Item3: "Performance improvement frameworks",
-          offer2Title: "Transformation and AI Enablement",
-          offer2Copy:
-            "Practical operating transformation using better workflows, clearer reporting, digital tools, and AI-supported execution.",
-          offer2Item1: "Workflow improvement and operating design",
-          offer2Item2: "Decision and reporting cadence",
-          offer2Item3: "Applied AI support for business teams",
-          offer3Title: "International Growth and Partnerships",
-          offer3Copy:
-            "Support for business development, market positioning, partnership building, and international commercial expansion.",
-          offer3Item1: "Market-entry and growth positioning",
-          offer3Item2: "Cross-border partnership support",
-          offer3Item3: "Commercial relationship development",
-          frameworkEyebrow: "Operating framework",
-          frameworkTitle: "The homepage now expresses a clearer logic for how ABHIN works.",
-          frameworkCopy:
-            "The platform narrative is built around a sequence that business stakeholders recognize quickly: strengthen structure, sharpen execution, support growth, and improve commercial outcomes.",
-          step1Title: "Establish control",
-          step1Copy: "Clarify governance, accountability, and operating decision structures.",
-          step2Title: "Align strategy",
-          step2Copy: "Connect planning, priorities, commercial direction, and leadership rhythm.",
-          step3Title: "Improve execution",
-          step3Copy: "Improve workflows, communication discipline, reporting flow, and technology use.",
-          launchEyebrow: "Launch implication",
-          launchTitle: "The site is ready to function as a clean public-facing corporate homepage.",
-          launchCopy:
-            "Remaining work is no longer homepage design. It is mostly operational: connect the correct public domain, allow public access, and wire in any real backend or human follow-up path later.",
-          launchStep1Title: "Domain routing",
-          launchStep1Copy: "Point the public ABHIN domain to the intended Vercel project.",
-          launchStep2Title: "Public access",
-          launchStep2Copy: "Ensure production access is not blocked behind deployment protection.",
-          launchStep3Title: "Backend later",
-          launchStep3Copy: "Add CRM, AI, analytics, or contact routing when operationally ready.",
-          readinessEyebrow: "Readiness notes",
-          readinessTitle:
-            "What still matters most for a real launch is operational correctness, not more homepage design.",
-          readinessCopy:
-            "The visual and messaging layer is already strong enough for a first public release. The main risks now sit in routing, accessibility, and whether visitors land on the correct public production site.",
-          compliance1Title: "Domain correctness",
-          compliance1Copy:
-            "The intended company domain should resolve to this project rather than a different unrelated site.",
-          compliance2Title: "Production accessibility",
-          compliance2Copy:
-            "The production site must also be set to public access on Vercel rather than remaining behind deployment protection.",
-          compliance3Title: "Inquiry handling",
-          compliance3Copy:
-            "Form and chat interactions can remain lightweight until ABHIN is ready to connect real lead-routing systems.",
-          contactEyebrow: "Contact ABHIN",
-          contactTitle: "Start a serious business conversation.",
-          contactCopy:
-            "The current site positions ABHIN for corporate inquiries, strategic partnerships, governance discussions, business transformation needs, and international commercial conversations.",
-          contactPoint1Title: "Headquarters signal",
-          contactPoint1Copy: "Ajman Free Zone, Ajman, United Arab Emirates",
-          contactPoint2Title: "Current site behavior",
-          contactPoint2Copy:
-            "The inquiry form works as a polished front-end placeholder until backend routing is connected.",
-          contactPoint3Title: "Recommended next integration",
-          contactPoint3Copy:
-            "Connect the form and chat flow to real email, CRM, or human follow-up channels once the launch path is finalized.",
-          formEyebrow: "Corporate inquiry",
-          interestPlaceholder: "Select inquiry type",
-          interest1: "Strategic business advisory",
-          interest2: "AI transformation support",
-          interest3: "Governance and operating model",
-          interest4: "International partnership or expansion",
-          namePlaceholder: "Full name",
-          companyPlaceholder: "Company / organization",
-          emailPlaceholder: "Work email",
-          messagePlaceholder: "Brief message",
-          submitCta: "Submit inquiry",
-          legalTitle: "Communication note",
-          legalCopy:
-            "This website is positioned for general corporate communication, not regulated financial or legal solicitation.",
-          chatEyebrow: "Interactive assistant",
-          chatTitle:
-            "A multilingual contact layer that can later connect to a real AI or support workflow.",
-          chatCopy:
-            "For now the assistant demonstrates how ABHIN can handle structured first-contact interactions in a modern, polished way.",
-          chatPlaceholder: "Type your message",
-          chatSend: "Send",
-          chatWelcome:
-            "Welcome to ABHIN. How can we help with governance, growth, transformation, or strategic business support?",
-          chatReply:
-            "Thank you. ABHIN has received your inquiry. This chat can be connected to a live AI or human response workflow when the production stack is ready.",
-          quick1: "Strategic advisory",
-          quick2: "AI transformation",
-          quick3: "Governance support",
-          quick4: "Partnership inquiry",
-          cookieTitle: "Cookie and privacy notice",
-          cookieCopy:
-            "This experience may use analytics, CRM, and AI-assisted communication tools once the production stack is connected.",
-          cookieButton: "Accept",
-          footerCopy: "ABHIN is an international business, consultancy, and governance platform.",
-          footerLink1: "Privacy policy",
-          footerLink2: "Terms of use",
-          footerLink3: "AI disclaimer",
-          footerLink4: "UAE compliance"
-        },
-        ar: {
-          brandSub: "منصة دولية للأعمال والاستشارات",
-          navAbout: "من نحن",
-          navServices: "الخدمات",
-          navFramework: "المنهجية",
-          navContact: "تواصل",
-          heroBadge: "استشارات استراتيجية وحوكمة وذكاء اصطناعي من الإمارات",
-          heroTitle: "منصة مبنية للشركات التي تريد هيكلة قوية وزخماً تنفيذياً واضحاً.",
-          heroLead:
-            "تدعم ABHIN المؤسسات التي تحتاج إلى انضباط تشغيلي أقوى وحوكمة أوضح وتموضع أفضل في السوق وتحول عملي مدعوم بالذكاء الاصطناعي بدون فقدان السيطرة على الأعمال.",
-          pill1: "الحوكمة والسيطرة التشغيلية",
-          pill2: "تحول الأعمال واستراتيجية الذكاء الاصطناعي",
-          pill3: "صفحة رئيسية ثابتة جاهزة للنشر",
-          primaryCta: "استكشف الخدمات",
-          secondaryCta: "تواصل مع ABHIN",
-          metric1Title: "استراتيجي",
-          metric1Copy: "تركيز على وضوح الأعمال وجودة القرار وانضباط التنفيذ.",
-          metric2Title: "عالمي",
-          metric2Copy: "مهيأ للشراكات الدولية والتوسع والفرص العابرة للحدود.",
-          metric3Title: "ذكاء اصطناعي عملي",
-          metric3Copy: "يستخدم عندما يحسن سير العمل والتقارير والتنسيق والفعالية التشغيلية.",
-          statusEyebrow: "حالة الإطلاق الحالية",
-          statusTitle: "تمت إعادة بناء الصفحة الرئيسية وهي جاهزة للنشر الإنتاجي.",
-          statusCopy:
-            "يعرض الموقع الآن ABHIN كمنصة استشارات أعمال دولية موثوقة بدلاً من واجهة عامة. الرسائل أوضح والبنية أقوى والصفحة جاهزة للنشر الثابت.",
-          signal1Title: "التموضع",
-          signal1Copy: "استشارات أعمال وحوكمة وتحول ودعم تشغيلي دولي.",
-          signal2Title: "الجمهور",
-          signal2Copy: "المشترون المؤسسيون والشركاء وأصحاب المصلحة والفرص الجادة.",
-          signal3Title: "صيغة التسليم",
-          signal3Copy: "صفحة ثابتة أحادية الملف مع دعم متعدد اللغات وتفاعل تواصل.",
-          signal4Title: "المطلوب التالي",
-          signal4Copy: "ربط النطاق الصحيح وإتاحة الوصول العام للموقع.",
-          summary1Title: "الحوكمة",
-          summary1Copy: "هيكل أوضح وقرارات أنظف وأنظمة تشغيل أكثر مساءلة.",
-          summary2Title: "التحول",
-          summary2Copy: "تحسين تشغيلي مدعوم باعتماد تقني منضبط.",
-          summary3Title: "التوسع",
-          summary3Copy: "دعم النمو الدولي وبناء الشراكات والتموضع في السوق.",
-          summary4Title: "التنفيذ",
-          summary4Copy: "تسليم عملي يساعد الفرق على الانتقال من الاستراتيجية إلى الفعل المستمر.",
-          uaeEyebrow: "الأساس الإماراتي",
-          uaeTitle: "منطلق من الإمارات ومبني لتنفيذ الأعمال الدولية.",
-          uaeCopy:
-            "تموضع ABHIN يعكس هوية الإمارات الحديثة: مصداقية واتصال عالمي وطموح تجاري وجدية في النمو المنضبط.",
-          note1Title: "ملاحظة نشر مهمة",
-          note1Copy: "يجب أن يشير النطاق العام إلى مشروع ABHIN على Vercel بدلاً من الموقع غير المرتبط الحالي.",
-          note2Title: "ملاحظة وصول",
-          note2Copy: "يجب أن تسمح إعدادات الحماية في Vercel بالوصول العام إلى موقع الشركة الإنتاجي.",
-          note3Title: "ملاحظة تموضع",
-          note3Copy:
-            "تحافظ الصفحة الرئيسية على عرض خدمات واسع بما يكفي لدعم تطوير الأعمال الحقيقي، مع بقاء الرسالة محددة بما يكفي لبناء الثقة لدى الزوار المؤسسيين والشركاء.",
-          aboutEyebrow: "عن ABHIN",
-          aboutTitle: "منصة أعمال مصممة حول الوضوح والانضباط والقيمة طويلة الأمد.",
-          aboutCopy1:
-            "تموضع ABHIN كمنصة استشارية دولية للأعمال تساعد المؤسسات على تحسين الهيكلة والقيادة والتقارير والتوسع.",
-          aboutCopy2:
-            "التركيز هنا عملي وليس إنشائياً: حوكمة أقوى وتنفيذ أكثر موثوقية وقدرات داخلية أفضل وقيمة عملاء أوضح وقرارات نمو أنظف.",
-          aboutPanelEyebrow: "ما الذي تنقله الصفحة الآن",
-          aboutPanel1Title: "نبرة مؤسسية جادة",
-          aboutPanel1Copy: "الموقع يبدو كمنصة أعمال لصناع القرار وليس صفحة تجريبية.",
-          aboutPanel2Title: "مصداقية تجارية",
-          aboutPanel2Copy: "الخدمات مصاغة حول خلق قيمة فعلية وليس ادعاءات عامة غامضة.",
-          aboutPanel3Title: "اتجاه واضح",
-          aboutPanel3Copy: "الهيكل يجعل فهم ما تفعله ABHIN ومن تخدمه سهلاً.",
-          aboutPanel4Title: "جاهزية إنتاجية",
-          aboutPanel4Copy: "تم تصميم الصفحة لتُطلق كواجهة شركة ثابتة ونظيفة.",
-          servicesEyebrow: "محاور الخدمات",
-          servicesTitle: "ثلاثة مسارات خدمة تجعل العرض واسعاً وموثوقاً ومفيداً تجارياً.",
-          servicesCopy:
-            "تجمع الصفحة العرض في فئات عملية حتى يفهم الزائر المنصة بسرعة مع ترك مساحة للتوسع المستقبلي.",
-          offer1Title: "الاستشارات الاستراتيجية للأعمال",
-          offer1Copy: "دعم استشاري للهيكلة والاتجاه الاستراتيجي والحوكمة والتخطيط وتحسين التشغيل.",
-          offer1Item1: "هيكلة الأعمال والتخطيط الاستراتيجي",
-          offer1Item2: "الحوكمة ودعم القرار",
-          offer1Item3: "أطر تحسين الأداء",
-          offer2Title: "التحول وتمكين الذكاء الاصطناعي",
-          offer2Copy: "تحول تشغيلي عملي باستخدام سير عمل أفضل وتقارير أوضح وأدوات رقمية وتنفيذ مدعوم بالذكاء الاصطناعي.",
-          offer2Item1: "تحسين سير العمل وتصميم التشغيل",
-          offer2Item2: "إيقاع القرار والتقارير",
-          offer2Item3: "دعم الذكاء الاصطناعي لفرق الأعمال",
-          offer3Title: "النمو الدولي والشراكات",
-          offer3Copy: "دعم تطوير الأعمال والتموضع السوقي وبناء الشراكات والتوسع التجاري الدولي.",
-          offer3Item1: "تموضع الدخول إلى السوق والنمو",
-          offer3Item2: "دعم الشراكات العابرة للحدود",
-          offer3Item3: "تطوير العلاقات التجارية",
-          frameworkEyebrow: "منهجية التشغيل",
-          frameworkTitle: "تعرض الصفحة الآن منطقاً أوضح لكيفية عمل ABHIN.",
-          frameworkCopy:
-            "تم بناء السرد حول تسلسل يفهمه أصحاب المصلحة بسرعة: تقوية الهيكل، تحسين التنفيذ، دعم النمو، ورفع النتائج التجارية.",
-          step1Title: "إرساء السيطرة",
-          step1Copy: "توضيح الحوكمة والمساءلة وهياكل القرار التشغيلي.",
-          step2Title: "مواءمة الاستراتيجية",
-          step2Copy: "ربط التخطيط والأولويات والاتجاه التجاري وإيقاع القيادة.",
-          step3Title: "تحسين التنفيذ",
-          step3Copy: "تحسين سير العمل والانضباط الاتصالي وتدفق التقارير واستخدام الأدوات.",
-          launchEyebrow: "أثر الإطلاق",
-          launchTitle: "الموقع جاهز ليعمل كواجهة شركة عامة ونظيفة.",
-          launchCopy:
-            "العمل المتبقي لم يعد تصميم الصفحة الرئيسية. بل هو تشغيلي في الأساس: ربط النطاق الصحيح والسماح بالوصول العام وربط أي مسار فعلي لاحقاً.",
-          launchStep1Title: "توجيه النطاق",
-          launchStep1Copy: "ربط نطاق ABHIN العام بالمشروع الصحيح على Vercel.",
-          launchStep2Title: "الوصول العام",
-          launchStep2Copy: "التأكد من أن الإنتاج ليس محجوباً خلف حماية النشر.",
-          launchStep3Title: "الربط الخلفي لاحقاً",
-          launchStep3Copy: "إضافة CRM أو AI أو التحليلات أو مسار تواصل بشري عند الجاهزية.",
-          readinessEyebrow: "ملاحظات الجاهزية",
-          readinessTitle: "الأهم لإطلاق حقيقي الآن هو الصحة التشغيلية وليس المزيد من تصميم الصفحة.",
-          readinessCopy:
-            "الطبقة البصرية والرسائل قوية بما يكفي لإطلاق أولي عام. المخاطر الأساسية الآن في التوجيه وإمكانية الوصول ووصول الزوار إلى الموقع الإنتاجي الصحيح.",
-          compliance1Title: "صحة النطاق",
-          compliance1Copy: "يجب أن يشير نطاق الشركة المقصود إلى هذا المشروع بدلاً من موقع آخر غير مرتبط.",
-          compliance2Title: "إمكانية الوصول للإنتاج",
-          compliance2Copy: "يجب أيضاً ضبط موقع الإنتاج على الوصول العام في Vercel بدلاً من بقائه خلف الحماية.",
-          compliance3Title: "التعامل مع الاستفسارات",
-          compliance3Copy: "يمكن أن تبقى تفاعلات النموذج والدردشة خفيفة حتى تكون ABHIN جاهزة لربط أنظمة توجيه العملاء الفعلية.",
-          contactEyebrow: "تواصل مع ABHIN",
-          contactTitle: "ابدأ محادثة أعمال جادة.",
-          contactCopy:
-            "يضع الموقع الحالي ABHIN لاستقبال الاستفسارات المؤسسية وطلبات الشراكات ونقاشات الحوكمة واحتياجات التحول ومحادثات التوسع التجاري الدولي.",
-          contactPoint1Title: "إشارة المقر",
-          contactPoint1Copy: "منطقة عجمان الحرة، عجمان، الإمارات العربية المتحدة",
-          contactPoint2Title: "سلوك الموقع الحالي",
-          contactPoint2Copy: "يعمل نموذج الاستفسار كواجهة أمامية مصقولة حتى يتم ربط مسار خلفي فعلي.",
-          contactPoint3Title: "أفضل تكامل تالٍ",
-          contactPoint3Copy: "اربط النموذج والدردشة بالبريد أو CRM أو المتابعة البشرية بعد تثبيت مسار الإطلاق.",
-          formEyebrow: "استفسار مؤسسي",
-          interestPlaceholder: "اختر نوع الاستفسار",
-          interest1: "استشارات استراتيجية للأعمال",
-          interest2: "دعم التحول بالذكاء الاصطناعي",
-          interest3: "الحوكمة ونموذج التشغيل",
-          interest4: "شراكة أو توسع دولي",
-          namePlaceholder: "الاسم الكامل",
-          companyPlaceholder: "الشركة / المؤسسة",
-          emailPlaceholder: "البريد المهني",
-          messagePlaceholder: "رسالة مختصرة",
-          submitCta: "إرسال الاستفسار",
-          legalTitle: "ملاحظة تواصل",
-          legalCopy: "هذا الموقع مخصص للتواصل المؤسسي العام وليس لطلبات قانونية أو مالية منظمة.",
-          chatEyebrow: "مساعد تفاعلي",
-          chatTitle: "طبقة تواصل متعددة اللغات يمكن ربطها لاحقاً بمساعد ذكي أو فريق دعم فعلي.",
-          chatCopy: "في الوقت الحالي يعرض المساعد كيف يمكن لـ ABHIN إدارة التفاعل الأولي بشكل منظم وحديث.",
-          chatPlaceholder: "اكتب رسالتك",
-          chatSend: "إرسال",
-          chatWelcome: "مرحباً بك في ABHIN. كيف يمكننا المساعدة في الحوكمة أو النمو أو التحول أو الدعم الاستراتيجي؟",
-          chatReply: "شكراً لك. تم استلام الاستفسار. يمكن ربط هذه الدردشة لاحقاً بمسار استجابة بشري أو ذكاء اصطناعي مباشر.",
-          quick1: "استشارة استراتيجية",
-          quick2: "تحول بالذكاء الاصطناعي",
-          quick3: "دعم الحوكمة",
-          quick4: "استفسار شراكة",
-          cookieTitle: "إشعار الخصوصية والكوكيز",
-          cookieCopy: "قد يستخدم هذا الموقع التحليلات وCRM وأدوات تواصل مدعومة بالذكاء الاصطناعي عند ربط البنية الإنتاجية.",
-          cookieButton: "موافق",
-          footerCopy: "ABHIN منصة دولية للأعمال والاستشارات والحوكمة.",
-          footerLink1: "سياسة الخصوصية",
-          footerLink2: "شروط الاستخدام",
-          footerLink3: "إخلاء مسؤولية الذكاء الاصطناعي",
-          footerLink4: "امتثال الإمارات"
-        },
-        fr: {
-          brandSub: "Plateforme internationale d'entreprise et de conseil",
-          navAbout: "A propos",
-          navServices: "Services",
-          navFramework: "Cadre",
-          navContact: "Contact",
-          heroBadge: "Conseil en strategie, gouvernance et IA base aux EAU",
-          heroTitle: "Concue pour les entreprises qui veulent de la structure, de l'elan et une execution serieuse.",
-          heroLead:
-            "ABHIN accompagne les organisations qui ont besoin d'une discipline operationnelle plus forte, d'une gouvernance plus claire, d'un meilleur positionnement de marche et d'une transformation pratique soutenue par l'IA.",
-          pill1: "Gouvernance et controle operationnel",
-          pill2: "Transformation et strategie IA",
-          pill3: "Page d'accueil statique prete a publier",
-          primaryCta: "Explorer les services",
-          secondaryCta: "Contacter ABHIN",
-          metric1Title: "Strategique",
-          metric1Copy: "Centree sur la clarte business, la qualite des decisions et la discipline d'execution.",
-          metric2Title: "Global",
-          metric2Copy: "Positionnee pour les partenariats internationaux, l'expansion et les opportunites transfrontalieres.",
-          metric3Title: "IA pratique",
-          metric3Copy: "Utilisee lorsqu'elle ameliore les workflows, le reporting, la coordination et l'efficacite.",
-          statusEyebrow: "Etat actuel",
-          statusTitle: "Page d'accueil reconstruite et prete pour la publication en production.",
-          statusCopy:
-            "Le site presente maintenant ABHIN comme une plateforme credible de conseil international plutot qu'un simple brouillon. Le message est plus net et la structure plus intentionnelle.",
-          signal1Title: "Positionnement",
-          signal1Copy: "Conseil business, gouvernance, transformation et support operationnel international.",
-          signal2Title: "Audience",
-          signal2Copy: "Acheteurs corporate, partenaires, parties prenantes et opportunites entrantes serieuses.",
-          signal3Title: "Format",
-          signal3Copy: "Page statique mono-fichier avec support multilingue et flux de contact interactif.",
-          signal4Title: "Prochaine exigence",
-          signal4Copy: "Connecter le bon domaine de production et autoriser l'acces public.",
-          summary1Title: "Gouvernance",
-          summary1Copy: "Structure plus nette, meilleures decisions et systemes d'execution plus responsables.",
-          summary2Title: "Transformation",
-          summary2Copy: "Amelioration operationnelle soutenue par une adoption technologique disciplinee.",
-          summary3Title: "Expansion",
-          summary3Copy: "Support a la croissance internationale, aux partenariats et au positionnement marche.",
-          summary4Title: "Execution",
-          summary4Copy: "Une approche pratique pour passer de la strategie a l'action coherente.",
-          uaeEyebrow: "Base UAE",
-          uaeTitle: "Ancree aux EAU, pensee pour l'execution internationale.",
-          uaeCopy:
-            "ABHIN reflète l'identite moderne des EAU : credibilite, connectivite, ambition commerciale et croissance disciplinee.",
-          note1Title: "Note de publication importante",
-          note1Copy: "Le domaine public doit pointer vers le projet Vercel ABHIN au lieu du site non relie actuellement en ligne.",
-          note2Title: "Note d'acces",
-          note2Copy: "La protection de deploiement Vercel doit permettre l'acces public au site corporate en production.",
-          note3Title: "Note de positionnement",
-          note3Copy:
-            "La page garde un modele de services suffisamment large pour le developpement business tout en restant assez concret pour inspirer confiance.",
-          aboutEyebrow: "A propos d'ABHIN",
-          aboutTitle: "Une plateforme d'affaires construite autour de la clarte, de la discipline et de la valeur long terme.",
-          aboutCopy1:
-            "ABHIN est positionnee comme une plateforme internationale de conseil qui aide les organisations a mieux se structurer, se diriger, se piloter et se developper.",
-          aboutCopy2:
-            "Le message est operationnel plutot qu'abstrait : meilleure gouvernance, execution plus fiable, capacites internes renforcees et decisions de croissance plus propres.",
-          aboutPanelEyebrow: "Ce que la page communique maintenant",
-          aboutPanel1Title: "Ton corporate serieux",
-          aboutPanel1Copy: "Le site se lit comme une plateforme pour decideurs, pas comme une page de demonstration.",
-          aboutPanel2Title: "Credibilite commerciale",
-          aboutPanel2Copy: "Les services sont presentes autour d'une vraie creation de valeur.",
-          aboutPanel3Title: "Direction claire",
-          aboutPanel3Copy: "La structure permet de comprendre rapidement ce que fait ABHIN et pour qui.",
-          aboutPanel4Title: "Pret pour la production",
-          aboutPanel4Copy: "La page est concue pour etre livree comme homepage corporate statique propre.",
-          servicesEyebrow: "Piliers de services",
-          servicesTitle: "Trois axes qui rendent l'offre large, credible et utile commercialement.",
-          servicesCopy:
-            "La page regroupe l'offre en categories pratiques pour que les visiteurs comprennent vite la plateforme tout en laissant de l'espace pour evoluer.",
-          offer1Title: "Conseil strategique business",
-          offer1Copy: "Support de conseil pour la structure, la direction strategique, la gouvernance, la planification et l'amelioration operationnelle.",
-          offer1Item1: "Structure business et planification strategique",
-          offer1Item2: "Gouvernance et aide a la decision",
-          offer1Item3: "Cadres d'amelioration de la performance",
-          offer2Title: "Transformation et activation IA",
-          offer2Copy: "Transformation operationnelle pratique grace a de meilleurs workflows, un reporting plus clair et des outils numeriques soutenus par l'IA.",
-          offer2Item1: "Amelioration des workflows et design operationnel",
-          offer2Item2: "Rythme de decision et de reporting",
-          offer2Item3: "Support IA pour les equipes business",
-          offer3Title: "Croissance internationale et partenariats",
-          offer3Copy: "Support pour le developpement commercial, le positionnement de marche, les partenariats et l'expansion internationale.",
-          offer3Item1: "Positionnement de marche et croissance",
-          offer3Item2: "Support aux partenariats transfrontaliers",
-          offer3Item3: "Developpement des relations commerciales",
-          frameworkEyebrow: "Cadre operatoire",
-          frameworkTitle: "La page exprime maintenant une logique plus claire de la facon dont ABHIN agit.",
-          frameworkCopy:
-            "Le recit est construit autour d'une sequence que les parties prenantes reconnaissent vite : renforcer la structure, clarifier l'execution, soutenir la croissance et ameliorer les resultats.",
-          step1Title: "Installer le controle",
-          step1Copy: "Clarifier la gouvernance, la responsabilite et les structures de decision.",
-          step2Title: "Aligner la strategie",
-          step2Copy: "Relier planification, priorites, direction commerciale et rythme de leadership.",
-          step3Title: "Ameliorer l'execution",
-          step3Copy: "Ameliorer les workflows, la discipline de communication, le reporting et l'usage des outils.",
-          launchEyebrow: "Implication pour le lancement",
-          launchTitle: "Le site est pret a jouer le role d'une homepage corporate propre et publique.",
-          launchCopy:
-            "Le travail restant n'est plus du design de homepage. Il est surtout operationnel : connecter le bon domaine, rendre le site public et brancher plus tard les vrais workflows.",
-          launchStep1Title: "Routage du domaine",
-          launchStep1Copy: "Pointer le domaine public ABHIN vers le bon projet Vercel.",
-          launchStep2Title: "Acces public",
-          launchStep2Copy: "S'assurer que la production n'est pas bloquee derriere la protection de deploiement.",
-          launchStep3Title: "Backend plus tard",
-          launchStep3Copy: "Ajouter CRM, IA, analytics ou routage humain quand l'organisation sera prete.",
-          readinessEyebrow: "Notes de preparation",
-          readinessTitle: "Pour un vrai lancement, la correction operationnelle compte maintenant plus qu'un redesign supplementaire.",
-          readinessCopy:
-            "La couche visuelle et le message sont deja assez solides pour un premier lancement public. Les principaux risques restants sont le routage, l'accessibilite et le bon point d'atterrissage.",
-          compliance1Title: "Exactitude du domaine",
-          compliance1Copy: "Le domaine public doit resoudre vers ce projet plutot que vers un autre site.",
-          compliance2Title: "Accessibilite production",
-          compliance2Copy: "Le site de production doit egalement etre rendu public sur Vercel au lieu de rester derriere la protection.",
-          compliance3Title: "Traitement des demandes",
-          compliance3Copy: "Le formulaire et le chat peuvent rester legers jusqu'au branchement des systemes de routage reels.",
-          contactEyebrow: "Contacter ABHIN",
-          contactTitle: "Commencez une vraie conversation business.",
-          contactCopy:
-            "Le site positionne actuellement ABHIN pour les demandes corporate, partenariats strategiques, conversations sur la gouvernance, transformations et expansion internationale.",
-          contactPoint1Title: "Signal de siege",
-          contactPoint1Copy: "Ajman Free Zone, Ajman, Emirats arabes unis",
-          contactPoint2Title: "Comportement actuel du site",
-          contactPoint2Copy: "Le formulaire fonctionne comme une facade soignee tant qu'aucun routage backend n'est connecte.",
-          contactPoint3Title: "Integration recommandee ensuite",
-          contactPoint3Copy: "Connecter formulaire et chat a un vrai canal email, CRM ou suivi humain une fois la voie de lancement fixee.",
-          formEyebrow: "Demande corporate",
-          interestPlaceholder: "Choisir le type de demande",
-          interest1: "Conseil strategique business",
-          interest2: "Support transformation IA",
-          interest3: "Gouvernance et modele operatoire",
-          interest4: "Partenariat ou expansion internationale",
-          namePlaceholder: "Nom complet",
-          companyPlaceholder: "Entreprise / organisation",
-          emailPlaceholder: "Email professionnel",
-          messagePlaceholder: "Message bref",
-          submitCta: "Envoyer la demande",
-          legalTitle: "Note de communication",
-          legalCopy: "Ce site est positionne pour la communication corporate generale et non pour une sollicitation financiere ou juridique reglementee.",
-          chatEyebrow: "Assistant interactif",
-          chatTitle: "Une couche de contact multilingue pouvant etre reliee plus tard a un vrai workflow IA ou support.",
-          chatCopy: "Pour l'instant, l'assistant montre comment ABHIN peut gerer un premier contact structure et moderne.",
-          chatPlaceholder: "Tapez votre message",
-          chatSend: "Envoyer",
-          chatWelcome: "Bienvenue chez ABHIN. Comment pouvons-nous aider sur la gouvernance, la croissance, la transformation ou l'appui strategique ?",
-          chatReply: "Merci. Votre demande a bien ete recue. Ce chat pourra etre connecte a un vrai workflow IA ou humain quand la pile de production sera prete.",
-          quick1: "Conseil strategique",
-          quick2: "Transformation IA",
-          quick3: "Support gouvernance",
-          quick4: "Demande de partenariat",
-          cookieTitle: "Notice cookies et confidentialite",
-          cookieCopy: "Cette experience pourra utiliser analytics, CRM et communication assistee par IA une fois la pile de production reliee.",
-          cookieButton: "Accepter",
-          footerCopy: "ABHIN est une plateforme internationale de business, conseil et gouvernance.",
-          footerLink1: "Politique de confidentialite",
-          footerLink2: "Conditions d'utilisation",
-          footerLink3: "Avertissement IA",
-          footerLink4: "Conformite EAU"
-        },
-        de: {
-          brandSub: "Internationale Plattform fur Business und Beratung",
-          navAbout: "Uber uns",
-          navServices: "Leistungen",
-          navFramework: "Modell",
-          navContact: "Kontakt",
-          heroBadge: "Strategie-, Governance- und KI-Beratung aus den VAE",
-          heroTitle: "Fur Unternehmen gebaut, die Struktur, Dynamik und konsequente Umsetzung wollen.",
-          heroLead:
-            "ABHIN unterstutzt Organisationen, die mehr operative Disziplin, klarere Governance, bessere Marktpositionierung und eine praktische KI-gestutzte Transformation brauchen.",
-          pill1: "Governance und operative Kontrolle",
-          pill2: "Business-Transformation und KI-Strategie",
-          pill3: "Statische, veroffentlichungsbereite Homepage",
-          primaryCta: "Leistungen ansehen",
-          secondaryCta: "ABHIN kontaktieren",
-          metric1Title: "Strategisch",
-          metric1Copy: "Fokussiert auf Klarheit, Entscheidungsqualitat und disziplinierte Umsetzung.",
-          metric2Title: "Global",
-          metric2Copy: "Ausgerichtet auf internationale Partnerschaften, Expansion und grenzuberschreitende Chancen.",
-          metric3Title: "Praktische KI",
-          metric3Copy: "Eingesetzt, wenn sie Workflows, Reporting, Koordination und Hebel verbessert.",
-          statusEyebrow: "Aktueller Rollout-Status",
-          statusTitle: "Homepage neu aufgebaut und fur die Produktion bereit.",
-          statusCopy:
-            "Die Seite prasentiert ABHIN jetzt als glaubwurdige internationale Business-Consultancy statt als Platzhalter. Botschaft und Struktur sind deutlich starker.",
-          signal1Title: "Positionierung",
-          signal1Copy: "Business-Consulting, Governance, Transformation und internationale operative Unterstutzung.",
-          signal2Title: "Zielgruppe",
-          signal2Copy: "Corporate-Kafer, Partner, Stakeholder und ernsthafte Inbound-Chancen.",
-          signal3Title: "Format",
-          signal3Copy: "Einzelne statische Seite mit Mehrsprachigkeit und interaktivem Kontaktfluss.",
-          signal4Title: "Nachte Anforderung",
-          signal4Copy: "Die richtige Produktionsdomain anbinden und offentlichen Zugriff erlauben.",
-          summary1Title: "Governance",
-          summary1Copy: "Mehr Struktur, sauberere Entscheidungen und klarere Verantwortlichkeit.",
-          summary2Title: "Transformation",
-          summary2Copy: "Operative Verbesserung mit disziplinierter Technologieeinfuhrung.",
-          summary3Title: "Expansion",
-          summary3Copy: "Unterstutzung fur internationales Wachstum, Partnerschaften und Marktpositionierung.",
-          summary4Title: "Umsetzung",
-          summary4Copy: "Praktische Lieferung, die Teams von Strategie zu konsequentem Handeln bringt.",
-          uaeEyebrow: "UAE-Basis",
-          uaeTitle: "In den VAE verankert, fur internationale Business-Umsetzung gebaut.",
-          uaeCopy:
-            "ABHIN spiegelt die moderne Identitat der VAE: glaubwurdig, vernetzt, kommerziell ambitioniert und diszipliniert im Wachstum.",
-          note1Title: "Wichtiger Publishing-Hinweis",
-          note1Copy: "Die offentliche Domain muss auf das ABHIN-Vercel-Projekt zeigen statt auf die derzeitige fremde Website.",
-          note2Title: "Zugriffshinweis",
-          note2Copy: "Der Produktionsauftritt muss in Vercel offentlich erreichbar sein und darf nicht hinter Deployment Protection bleiben.",
-          note3Title: "Positionierungshinweis",
-          note3Copy:
-            "Die Homepage bleibt breit genug fur echte Geschaftsentwicklung und zugleich konkret genug, um bei Corporate-Besuchern Vertrauen aufzubauen.",
-          aboutEyebrow: "Uber ABHIN",
-          aboutTitle: "Eine Business-Plattform rund um Klarheit, Disziplin und langfristigen Wert.",
-          aboutCopy1:
-            "ABHIN ist als internationale Beratungsplattform positioniert, die Organisationen hilft, Struktur, Fuhrung, Reporting und Skalierung zu verbessern.",
-          aboutCopy2:
-            "Die Botschaft ist operativ statt abstrakt: starkere Governance, verlasslichere Umsetzung, bessere interne Fahigkeiten und sauberere Wachstumsentscheidungen.",
-          aboutPanelEyebrow: "Was die Homepage jetzt vermittelt",
-          aboutPanel1Title: "Ernster Corporate-Ton",
-          aboutPanel1Copy: "Die Seite wirkt wie eine Plattform fur Entscheider und nicht wie eine Demo.",
-          aboutPanel2Title: "Kommerzielle Glaubwurdigkeit",
-          aboutPanel2Copy: "Leistungen sind um echte Wertschopfung statt vage Aussagen herum formuliert.",
-          aboutPanel3Title: "Klare Richtung",
-          aboutPanel3Copy: "Die Struktur macht schnell verstandlich, was ABHIN tut und wem es hilft.",
-          aboutPanel4Title: "Produktionsreife",
-          aboutPanel4Copy: "Die Seite ist als saubere statische Corporate-Homepage konzipiert.",
-          servicesEyebrow: "Leistungspfeiler",
-          servicesTitle: "Drei Leistungsbahnen, die das Angebot breit, glaubwurdig und nutzlich machen.",
-          servicesCopy:
-            "Die Homepage gruppiert das Angebot in praktische Kategorien, damit Besucher die Plattform schnell verstehen und zugleich Raum fur Wachstum bleibt.",
-          offer1Title: "Strategische Business-Beratung",
-          offer1Copy: "Beratung fur Struktur, strategische Richtung, Governance, Planung und operative Verbesserung.",
-          offer1Item1: "Business-Struktur und strategische Planung",
-          offer1Item2: "Governance und Entscheidungsunterstutzung",
-          offer1Item3: "Leistungsverbesserungs-Frameworks",
-          offer2Title: "Transformation und KI-Aktivierung",
-          offer2Copy: "Praktische operative Transformation mit besseren Workflows, klarerem Reporting, digitalen Tools und KI-gestutzter Umsetzung.",
-          offer2Item1: "Workflow-Verbesserung und Operating Design",
-          offer2Item2: "Entscheidungs- und Reporting-Takt",
-          offer2Item3: "Angewandte KI-Unterstutzung fur Business-Teams",
-          offer3Title: "Internationales Wachstum und Partnerschaften",
-          offer3Copy: "Unterstutzung fur Business Development, Marktpositionierung, Partnerschaften und internationale Expansion.",
-          offer3Item1: "Markteintritt und Wachstumspositionierung",
-          offer3Item2: "Grenzuberschreitende Partnerschaftsunterstutzung",
-          offer3Item3: "Entwicklung kommerzieller Beziehungen",
-          frameworkEyebrow: "Betriebsmodell",
-          frameworkTitle: "Die Homepage zeigt jetzt klarer, wie ABHIN arbeitet.",
-          frameworkCopy:
-            "Die Plattform-Erzahlung folgt einer Sequenz, die Stakeholder sofort erkennen: Struktur starken, Umsetzung scharfen, Wachstum unterstutzen und Resultate verbessern.",
-          step1Title: "Kontrolle herstellen",
-          step1Copy: "Governance, Verantwortung und operative Entscheidungsstrukturen klar festlegen.",
-          step2Title: "Strategie ausrichten",
-          step2Copy: "Planung, Prioritaten, kommerzielle Richtung und Fuhrungsrhythmus verbinden.",
-          step3Title: "Umsetzung verbessern",
-          step3Copy: "Workflows, Kommunikationsdisziplin, Reporting und Tool-Nutzung verbessern.",
-          launchEyebrow: "Launch-Folge",
-          launchTitle: "Die Seite ist bereit, als saubere offentliche Corporate-Homepage zu funktionieren.",
-          launchCopy:
-            "Die Restarbeit ist keine Homepage-Gestaltung mehr. Sie ist vor allem operativ: richtige Domain anbinden, offentlichen Zugriff erlauben und spater echte Workflows anschliessen.",
-          launchStep1Title: "Domain-Routing",
-          launchStep1Copy: "Die offentliche ABHIN-Domain auf das richtige Vercel-Projekt zeigen lassen.",
-          launchStep2Title: "Offentlicher Zugriff",
-          launchStep2Copy: "Sicherstellen, dass die Produktion nicht hinter Deployment Protection bleibt.",
-          launchStep3Title: "Backend spater",
-          launchStep3Copy: "CRM, KI, Analytics oder menschliches Routing anschliessen, wenn organisatorisch bereit.",
-          readinessEyebrow: "Bereitschaftshinweise",
-          readinessTitle: "Fur einen echten Launch zahlt jetzt operative Korrektheit mehr als weiteres Homepage-Design.",
-          readinessCopy:
-            "Die visuelle und inhaltliche Ebene ist stark genug fur einen ersten offentlichen Start. Die Hauptgefahren liegen jetzt in Routing, Zuganglichkeit und korrekter Zielseite.",
-          compliance1Title: "Domain-Korrektheit",
-          compliance1Copy: "Die beabsichtigte Firmendomain sollte auf dieses Projekt statt auf eine andere Website zeigen.",
-          compliance2Title: "Produktionszugang",
-          compliance2Copy: "Die Produktionssite muss zudem in Vercel offentlich zuganglich sein statt hinter Schutzmechanismen zu bleiben.",
-          compliance3Title: "Anfragebehandlung",
-          compliance3Copy: "Formular und Chat konnen leichtgewichtig bleiben, bis echte Lead-Routing-Systeme angeschlossen werden.",
-          contactEyebrow: "ABHIN kontaktieren",
-          contactTitle: "Beginnen Sie ein ernsthaftes Gesprach.",
-          contactCopy:
-            "Die Seite positioniert ABHIN fur Corporate-Anfragen, strategische Partnerschaften, Governance-Gesprache, Transformation und internationale kommerzielle Gesprache.",
-          contactPoint1Title: "Standortsignal",
-          contactPoint1Copy: "Ajman Free Zone, Ajman, Vereinigte Arabische Emirate",
-          contactPoint2Title: "Aktuelles Site-Verhalten",
-          contactPoint2Copy: "Das Formular funktioniert als polierte Frontend-Schicht, bis echtes Backend-Routing verbunden wird.",
-          contactPoint3Title: "Empfohlene nachste Integration",
-          contactPoint3Copy: "Formular und Chat mit echter E-Mail, CRM oder menschlichem Follow-up verbinden, sobald der Launch-Pfad final ist.",
-          formEyebrow: "Corporate-Anfrage",
-          interestPlaceholder: "Anfragetyp auswahlen",
-          interest1: "Strategische Business-Beratung",
-          interest2: "KI-Transformationsunterstutzung",
-          interest3: "Governance und Operating Model",
-          interest4: "Partnerschaft oder internationale Expansion",
-          namePlaceholder: "Vollstandiger Name",
-          companyPlaceholder: "Unternehmen / Organisation",
-          emailPlaceholder: "Geschaftliche E-Mail",
-          messagePlaceholder: "Kurze Nachricht",
-          submitCta: "Anfrage senden",
-          legalTitle: "Kommunikationshinweis",
-          legalCopy: "Diese Website dient der allgemeinen Unternehmenskommunikation und nicht der regulierten Finanz- oder Rechtsansprache.",
-          chatEyebrow: "Interaktiver Assistent",
-          chatTitle: "Eine mehrsprachige Kontaktoberflache, die spater an echte KI- oder Support-Workflows angebunden werden kann.",
-          chatCopy: "Aktuell zeigt der Assistent, wie ABHIN strukturierten Erstkontakt modern und professionell abbilden kann.",
-          chatPlaceholder: "Nachricht eingeben",
-          chatSend: "Senden",
-          chatWelcome: "Willkommen bei ABHIN. Wobei konnen wir zu Governance, Wachstum, Transformation oder strategischer Unterstutzung helfen?",
-          chatReply: "Vielen Dank. Ihre Anfrage ist eingegangen. Dieser Chat kann spater an einen echten KI- oder menschlichen Workflow angebunden werden.",
-          quick1: "Strategische Beratung",
-          quick2: "KI-Transformation",
-          quick3: "Governance-Unterstutzung",
-          quick4: "Partnerschaftsanfrage",
-          cookieTitle: "Cookie- und Datenschutzhinweis",
-          cookieCopy: "Diese Erfahrung kann Analytics, CRM und KI-gestutzte Kommunikation nutzen, sobald die Produktionsumgebung verbunden ist.",
-          cookieButton: "Akzeptieren",
-          footerCopy: "ABHIN ist eine internationale Plattform fur Business, Beratung und Governance.",
-          footerLink1: "Datenschutz",
-          footerLink2: "Nutzungsbedingungen",
-          footerLink3: "KI-Hinweis",
-          footerLink4: "UAE-Compliance"
-        }
-      };
+    <section class="uae"><div class="uae-bg"></div><div class="container uae-content"><p class="label">UAE Gateway</p><h2>Structured from the United Arab Emirates for regional and global opportunity.</h2><p>ABHIN positions the UAE as a strategic base for business development, advisory mandates, corporate structuring, market entry and international partnerships.</p><div class="flag-row"><div class="flag"><div class="red"></div><div class="rest"><div class="g"></div><div class="w"></div><div class="b"></div></div></div><div class="flag-text">AJMAN FREE ZONE • UNITED ARAB EMIRATES</div></div></div></section>
 
-      let language = "en";
-      const chatWindow = document.getElementById("chatWindow");
-      const chatInput = document.getElementById("chatInput");
-      const quickReplies = document.getElementById("quickReplies");
-      const langToggle = document.getElementById("langToggle");
-      let conversation = [];
+    <section class="video-section"><div class="container"><div class="section-head"><div><p class="label">Executive Presence</p><h2>Modern, calm and institutional.</h2></div><div>Visual direction for the company: premium, strategic, international, and practical. The final public build can use owned media, UAE imagery, or licensed executive visuals.</div></div><div class="video-grid"><div class="video-card"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop"><source src="https://cdn.coverr.co/videos/coverr-business-meeting-1568/1080p.mp4" type="video/mp4"></video><div class="video-text"><div class="kicker">BUSINESS STRATEGY</div><div class="title">Clarity before scale.</div></div></div><div style="display:grid;gap:22px"><div class="video-card small"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"></video><div class="video-text"><div class="kicker">GOVERNANCE</div><div class="title">Decision systems.</div></div></div><div class="video-card small"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=1200&auto=format&fit=crop"></video><div class="video-text"><div class="kicker">AI ENABLEMENT</div><div class="title">Smarter execution.</div></div></div></div></div></div></section>
 
-      function renderChat() {
-        const active = copy[language];
-        const items = conversation.length
-          ? conversation
-          : [{ role: "agent", text: active.chatWelcome }];
+    <section class="content" id="about"><div class="container two-grid"><div><p class="label" data-i18n="aboutLabel">About ABHIN</p><h2 data-i18n="aboutTitle">A professional platform for advising, operating and scaling business.</h2></div><div><p class="copy" data-i18n="aboutText1">ABHIN combines strategic business advisory, operational leadership and governance discipline. The platform supports organizations across structuring, planning, execution, expansion and transformation.</p><p class="copy" data-i18n="aboutText2">The leadership model is practical: protect margin, create demand, improve internal capability, strengthen customer value, and build sustainable partnerships.</p><div class="pillars"><div class="pillar">Corporate advisory</div><div class="pillar">Governance</div><div class="pillar">Market access</div><div class="pillar">AI transformation</div></div></div></div></section>
 
-        chatWindow.innerHTML = items
-          .map(
-            (item) =>
-              `<div class="bubble ${item.role === "user" ? "user" : "agent"}">${item.text}</div>`
-          )
-          .join("");
-      }
+    <section class="platforms" id="platforms"><div class="container"><div class="center"><p class="label" data-i18n="platformsLabel">Business Platforms</p><h2 data-i18n="platformsTitle">Focused services for measurable value creation.</h2><p data-i18n="platformsText">ABHIN prioritizes areas where disciplined strategy, market access, governance and strong execution can create sustainable advantage.</p></div><div class="cards" id="platformCards"></div></div></section>
 
-      function renderQuickReplies() {
-        const active = copy[language];
-        const replies = [active.quick1, active.quick2, active.quick3, active.quick4];
-        quickReplies.innerHTML = replies
-          .map((reply) => `<button type="button" data-reply="${reply}">${reply}</button>`)
-          .join("");
-      }
+    <section class="strategy" id="strategy"><div class="container two-grid"><div><p class="label" data-i18n="strategyLabel">Strategic Model</p><h2 data-i18n="strategyTitle">Leadership through clarity, control and execution.</h2><p class="copy" data-i18n="strategyText">The ABHIN model combines market expansion, pricing discipline, customer segmentation, operational efficiency, financial control and governance frameworks.</p></div><div class="card"><div class="framework-row"><div class="framework-num">1</div><div><strong>Diagnose</strong><p>Understand business model, market, customer base, margin, processes and risk exposure.</p></div></div><div class="framework-row"><div class="framework-num">2</div><div><strong>Design</strong><p>Build strategic options, governance systems, operating models and commercial plans.</p></div></div><div class="framework-row"><div class="framework-num">3</div><div><strong>Execute</strong><p>Support controlled rollout, performance tracking, stakeholder alignment and continuous improvement.</p></div></div></div></div></section>
 
-      function applyLanguage() {
-        const active = copy[language];
-        document.documentElement.lang = language;
-        document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-        document.querySelectorAll("[data-i18n]").forEach((node) => {
-          const key = node.dataset.i18n;
-          if (active[key]) node.textContent = active[key];
+    <section class="cta"><div class="container cta-box"><div class="cta-inner"><p class="label" data-i18n="philosophyLabel">Business Philosophy</p><h2 data-i18n="philosophyTitle">Professional governance. Practical growth. Long-term value.</h2><p data-i18n="philosophyText">ABHIN supports organizations where disciplined business structure and hands-on execution can produce real operational value.</p></div></div></section>
+
+    <section class="contact" id="contact"><div class="container two-grid"><div><p class="label" data-i18n="contactLabel">Contact</p><h2 data-i18n="contactTitle">Speak with ABHIN.</h2><p class="copy" data-i18n="contactText">ABHIN welcomes corporate inquiries, strategic partnerships, governance discussions, transformation projects and consulting proposals.</p><p><strong data-i18n="location">Location</strong><br>Ajman Free Zone, United Arab Emirates</p></div><div class="card"><div class="contact-gateway"><div><strong>Corporate inquiry gateway</strong><br><span class="online-dot">AI-ready</span></div></div><div class="notice"><strong>Important</strong><div>This form is configured as a front-end inquiry preview. Final production should connect to email, CRM, or a secure backend endpoint.</div></div><form id="leadForm"><input required placeholder="Full name"><input required type="email" placeholder="Email address"><input placeholder="Company / Organization"><select><option>Strategic advisory</option><option>Partnership inquiry</option><option>AI transformation</option><option>Governance support</option></select><textarea rows="5" placeholder="Briefly describe the requirement"></textarea><button type="submit">Submit inquiry</button></form></div></div></section>
+  </main>
+
+  <footer><div class="container"><div><strong>ABHIN</strong><br><span data-i18n="footer">International business, consultancy and governance platform.</span></div><div>© <span id="year"></span> ABHIN. All rights reserved.</div></div></footer>
+
+  <button class="chat-toggle" id="openChat" data-i18n="chatFloating">Multilingual AI assistant</button>
+  <div class="chat" id="chat"><div class="chat-head"><div><div class="chat-title" data-i18n="chatHeader">Samoor AI Assistant</div><div class="chat-sub" data-i18n="chatSub">Connected assistant for ABHIN inquiries</div></div><button class="chat-close" id="closeChat">×</button></div><div class="chat-body" id="chatBody"></div><div class="quick" id="quick"></div><div class="chat-input"><input id="chatInput" placeholder="Ask Samoor..."><button id="sendBtn">Send</button></div></div>
+
+  <div class="cookie" id="cookie"><p><strong>Privacy preview</strong><br>This preview uses no analytics. Final public release should include a formal privacy notice, cookie policy and backend security review.</p><button id="acceptCookie">Accept</button></div>
+
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    if(location.hostname==='abhin.com') location.replace('https://www.abhin.com'+location.pathname+location.search+location.hash);
+    const data={
+      en:{dir:'ltr',nav:['About','Platforms','Strategy','Contact'],heroBadge:'Independent business and consultancy platform',heroTitle:'Building resilient businesses through governance, strategy and operational excellence.',heroText:'ABHIN is designed as an international business and consultancy platform focused on strategic advisory, corporate governance, transformation, AI-enabled operations and long-term value creation.',primary:'Explore the platform',secondary:'Contact ABHIN',visionLabel:'ABHIN Standard',visionTitle:'Institutional discipline. Entrepreneurial execution.',visionText:'A platform designed around governance, strategic planning, operational control, leadership development and market expansion.',aboutLabel:'About ABHIN',aboutTitle:'A professional platform for advising, operating and scaling business.',aboutText1:'ABHIN combines strategic business advisory, operational leadership and governance discipline. The platform supports organizations across structuring, planning, execution, expansion and transformation.',aboutText2:'The leadership model is practical: protect margin, create demand, improve internal capability, strengthen customer value, and build sustainable partnerships.',platformsLabel:'Business Platforms',platformsTitle:'Focused services for measurable value creation.',platformsText:'ABHIN prioritizes areas where disciplined strategy, market access, governance and strong execution can create sustainable advantage.',strategyLabel:'Strategic Model',strategyTitle:'Leadership through clarity, control and execution.',strategyText:'The ABHIN model combines market expansion, pricing discipline, customer segmentation, operational efficiency, financial control and governance frameworks.',philosophyLabel:'Business Philosophy',philosophyTitle:'Professional governance. Practical growth. Long-term value.',philosophyText:'ABHIN supports organizations where disciplined business structure and hands-on execution can produce real operational value.',contactLabel:'Contact',contactTitle:'Speak with ABHIN.',contactText:'ABHIN welcomes corporate inquiries, strategic partnerships, governance discussions, transformation projects and consulting proposals.',location:'Location',footer:'International business, consultancy and governance platform.',chatWelcome:'Hello, I am Samoor, ABHIN’s AI assistant. I can help with company information, advisory inquiries, partnerships, governance support, AI transformation and contact routing.',chatReceived:'Thank you. Samoor received your message. In the public version, this chat will connect to the live ABHIN assistant backend for real AI responses and inquiry routing.',chatHeader:'Samoor AI Assistant',chatSub:'Connected assistant for ABHIN inquiries',chatPlaceholder:'Ask Samoor...',chatSend:'Send',chatFloating:'Chat with Samoor',quickReplies:['Strategic business advisory','Partnership inquiry','AI consulting','Governance support'],platforms:[['01','Strategic Business Advisory','Executive advisory, business strategy, corporate governance structuring, planning frameworks and long-term value creation models.'],['02','Business Transformation & AI','AI-enabled operating advisory, leadership transformation, digital modernization, automation and performance improvement.'],['03','Global Partnerships & Expansion','Cross-border partnerships, regional expansion strategy, institutional relationships and international market positioning.']]},
+      ar:{dir:'rtl',nav:['عن ABHIN','المنصات','الاستراتيجية','تواصل'],heroBadge:'منصة مستقلة للأعمال والاستشارات',heroTitle:'نبني أعمالاً قوية عبر الحوكمة والاستراتيجية والتميز التشغيلي.',heroText:'ABHIN منصة دولية للأعمال والاستشارات تركز على الاستشارات الاستراتيجية، الحوكمة، التحول، العمليات المدعومة بالذكاء الاصطناعي وخلق القيمة طويلة الأمد.',primary:'استكشف المنصة',secondary:'تواصل مع ABHIN',visionLabel:'معيار ABHIN',visionTitle:'انضباط مؤسسي. تنفيذ ريادي.',visionText:'منصة مبنية حول الحوكمة والتخطيط الاستراتيجي والتحكم التشغيلي وتطوير القيادة والتوسع في الأسواق.',aboutLabel:'عن ABHIN',aboutTitle:'منصة احترافية للاستشارات والإدارة وتطوير الأعمال.',aboutText1:'تجمع ABHIN بين الاستشارات الاستراتيجية للأعمال والقيادة التشغيلية والانضباط المؤسسي.',aboutText2:'نموذج القيادة عملي: حماية الهامش، بناء الطلب، تطوير القدرات الداخلية، تعزيز قيمة العميل وبناء شراكات مستدامة.',platformsLabel:'منصات الأعمال',platformsTitle:'خدمات مركزة لخلق قيمة قابلة للقياس.',platformsText:'تركز ABHIN على المجالات التي تصنع فيها الاستراتيجية المنضبطة والحوكمة والتنفيذ القوي ميزة مستدامة.',strategyLabel:'النموذج الاستراتيجي',strategyTitle:'القيادة عبر الوضوح والتحكم والتنفيذ.',strategyText:'يجمع نموذج ABHIN بين التوسع في الأسواق، الانضباط السعري، تقسيم العملاء، الكفاءة التشغيلية، الرقابة المالية وأطر الحوكمة.',philosophyLabel:'فلسفة الأعمال',philosophyTitle:'حوكمة احترافية. نمو عملي. قيمة طويلة الأمد.',philosophyText:'تدعم ABHIN المؤسسات عندما يمكن للهيكلة والانضباط والتنفيذ العملي أن يخلق قيمة تشغيلية حقيقية.',contactLabel:'تواصل',contactTitle:'تواصل مع ABHIN.',contactText:'ترحب ABHIN بالاستفسارات المؤسسية، الشراكات الاستراتيجية، مشاريع التحول، الحوكمة والمقترحات الاستشارية.',location:'الموقع',footer:'منصة دولية للأعمال والاستشارات والحوكمة.',chatWelcome:'حياك الله، أنا Samoor مساعد ABHIN الذكي. أقدر أساعدك بمعلومات الشركة، الاستشارات، الشراكات، الحوكمة، التحول بالذكاء الاصطناعي وتوجيه طلبك للفريق المناسب.',chatReceived:'شكراً لك. Samoor استلم رسالتك. في النسخة المنشورة سيتم ربط الدردشة بخادم مساعد ABHIN الذكي للردود الحية وتوجيه الاستفسارات.',chatHeader:'Samoor مساعد ABHIN الذكي',chatSub:'مساعد متصل لاستفسارات ABHIN',chatPlaceholder:'اسأل Samoor...',chatSend:'إرسال',chatFloating:'تحدث مع Samoor',quickReplies:['استشارة استراتيجية للأعمال','طلب شراكة','استشارات ذكاء اصطناعي','دعم الحوكمة'],platforms:[['01','الاستشارات الاستراتيجية للأعمال','استشارات تنفيذية واستراتيجيات أعمال وهيكلة حوكمة وبناء أطر لخلق القيمة طويلة الأمد للمؤسسات والشركات.'],['02','تحول الأعمال والذكاء الاصطناعي','استشارات تشغيلية مدعومة بالذكاء الاصطناعي وتحول قيادي وتحديث رقمي وتحسين الأداء.'],['03','الشراكات والتوسع العالمي','شراكات عابرة للحدود واستراتيجيات توسع إقليمي وعلاقات مؤسسية وتموضع دولي في الأسواق.']]},
+      de:{dir:'ltr',nav:['Über uns','Plattformen','Strategie','Kontakt'],heroBadge:'Unabhängige Unternehmens- und Beratungsplattform',heroTitle:'Wir bauen widerstandsfähige Unternehmen mit Governance, Strategie und operativer Exzellenz.',heroText:'ABHIN ist als internationale Unternehmens- und Beratungsplattform konzipiert und fokussiert auf strategische Beratung, Governance, Transformation, KI-gestützte Prozesse und langfristige Wertschöpfung.',primary:'Plattform entdecken',secondary:'ABHIN kontaktieren',visionLabel:'ABHIN Standard',visionTitle:'Institutionelle Disziplin. Unternehmerische Umsetzung.',visionText:'Eine Plattform für Governance, strategische Planung, operative Kontrolle, Führung und Marktentwicklung.',aboutLabel:'Über ABHIN',aboutTitle:'Eine professionelle Plattform für Unternehmensführung, Beratung und Skalierung.',aboutText1:'ABHIN verbindet strategische Unternehmensberatung, operative Führung und Governance-Disziplin. Die Plattform unterstützt Unternehmen von Strukturierung und Planung bis Umsetzung, Expansion und Transformation.',aboutText2:'Das Führungsmodell ist praktisch: Margen schützen, Nachfrage aufbauen, interne Fähigkeiten verbessern, Kundennutzen stärken und nachhaltige Partnerschaften schaffen.',platformsLabel:'Geschäftsplattformen',platformsTitle:'Fokussierte Services mit messbarer Wertschöpfung.',platformsText:'ABHIN priorisiert Bereiche, in denen disziplinierte Strategie, Marktzugang, Governance und starke Umsetzung nachhaltige Vorteile schaffen.',strategyLabel:'Strategisches Modell',strategyTitle:'Führung durch Klarheit, Kontrolle und Umsetzung.',strategyText:'Das ABHIN-Modell kombiniert Marktexpansion, Preisdisziplin, Kundensegmentierung, operative Effizienz, Finanzkontrolle und Governance-Rahmenwerke.',philosophyLabel:'Unternehmensphilosophie',philosophyTitle:'Professionelle Governance. Praktisches Wachstum. Langfristiger Wert.',philosophyText:'ABHIN unterstützt Organisationen dort, wo echte operative Wertsteigerung möglich ist.',contactLabel:'Kontakt',contactTitle:'Kontaktieren Sie ABHIN.',contactText:'ABHIN begrüßt Unternehmensanfragen, strategische Partnerschaften, Governance-Gespräche, Transformationsprojekte und Beratungsanfragen.',location:'Standort',footer:'Internationale Unternehmens-, Beratungs- und Governance-Plattform.',chatWelcome:'Hallo, ich bin Samoor, der KI-Assistent von ABHIN. Ich kann bei Unternehmensinformationen, Beratung, Partnerschaften, Governance und KI-Transformation helfen.',chatReceived:'Vielen Dank. Samoor hat Ihre Nachricht erhalten. In der öffentlichen Version wird dieser Chat mit dem Live-Backend des ABHIN-Assistenten verbunden.',chatHeader:'Samoor KI-Assistent',chatSub:'Verbundener Assistent für ABHIN-Anfragen',chatPlaceholder:'Samoor fragen...',chatSend:'Senden',chatFloating:'Mit Samoor chatten',quickReplies:['Strategische Unternehmensberatung','Partnerschaftsanfrage','KI-Beratung','Governance-Unterstützung'],platforms:[['01','Strategische Unternehmensberatung','Executive Advisory, Unternehmensstrategie, Governance-Strukturierung und langfristige Wertschöpfungsmodelle.'],['02','Transformation & KI','KI-gestützte operative Beratung, Führungstransformation, digitale Modernisierung und Leistungsoptimierung.'],['03','Globale Partnerschaften & Expansion','Internationale Partnerschaften, regionale Expansionsstrategien und globale Marktpositionierung.']]},
+      fr:{dir:'ltr',nav:['À propos','Plateformes','Stratégie','Contact'],heroBadge:'Plateforme indépendante d’entreprise et de conseil',heroTitle:'Construire des entreprises solides grâce à la gouvernance, à la stratégie et à l’excellence opérationnelle.',heroText:'ABHIN est conçue comme une plateforme internationale d’entreprise et de conseil, axée sur le conseil stratégique, la gouvernance, la transformation, les opérations assistées par IA et la création de valeur à long terme.',primary:'Explorer la plateforme',secondary:'Contacter ABHIN',visionLabel:'Standard ABHIN',visionTitle:'Discipline institutionnelle. Exécution entrepreneuriale.',visionText:'Une plateforme fondée sur la gouvernance, la planification stratégique, le contrôle opérationnel, le leadership et le développement des marchés.',aboutLabel:'À propos d’ABHIN',aboutTitle:'Une plateforme professionnelle pour conseiller, gérer et développer.',aboutText1:'ABHIN combine conseil stratégique d’entreprise, leadership opérationnel et discipline de gouvernance.',aboutText2:'Le modèle de leadership est pratique : protéger les marges, créer la demande, renforcer les capacités internes et bâtir des partenariats durables.',platformsLabel:'Plateformes d’affaires',platformsTitle:'Des services ciblés pour une création de valeur mesurable.',platformsText:'ABHIN privilégie les domaines où la stratégie disciplinée, l’accès au marché, la gouvernance et l’exécution forte créent un avantage durable.',strategyLabel:'Modèle stratégique',strategyTitle:'Leadership par la clarté, le contrôle et l’exécution.',strategyText:'Le modèle ABHIN combine expansion de marché, discipline tarifaire, segmentation client, efficacité opérationnelle, contrôle financier et cadres de gouvernance.',philosophyLabel:'Philosophie d’entreprise',philosophyTitle:'Gouvernance professionnelle. Croissance pratique. Valeur durable.',philosophyText:'ABHIN accompagne les organisations là où elle peut ajouter une vraie valeur opérationnelle.',contactLabel:'Contact',contactTitle:'Contactez ABHIN.',contactText:'ABHIN accueille les demandes corporatives, les partenariats stratégiques et les propositions de conseil.',location:'Localisation',footer:'Plateforme internationale d’entreprise, de conseil et de gouvernance.',chatWelcome:'Bonjour, je suis Samoor, l’assistant IA d’ABHIN. Je peux aider avec les informations de l’entreprise, le conseil, les partenariats, la gouvernance et la transformation IA.',chatReceived:'Merci. Samoor a reçu votre message. Dans la version publique, ce chat sera connecté au backend en direct de l’assistant ABHIN.',chatHeader:'Assistant IA Samoor',chatSub:'Assistant connecté pour les demandes ABHIN',chatPlaceholder:'Demander à Samoor...',chatSend:'Envoyer',chatFloating:'Discuter avec Samoor',quickReplies:['Conseil stratégique d’entreprise','Demande de partenariat','Conseil IA','Support gouvernance'],platforms:[['01','Conseil stratégique d’entreprise','Conseil exécutif, stratégie d’entreprise, structuration de gouvernance et création de valeur.'],['02','Transformation & Intelligence Artificielle','Conseil opérationnel assisté par IA, transformation du leadership et modernisation numérique.'],['03','Partenariats mondiaux & Expansion','Partenariats internationaux, expansion régionale et positionnement mondial.']]}
+    };
+    let lang='en';let messages=[];
+    function t(){return data[lang]}
+    function applyLang(){const x=t();document.documentElement.dir=x.dir;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(x[k])el.textContent=x[k]});document.querySelectorAll('[data-nav]').forEach(el=>el.textContent=x.nav[Number(el.dataset.nav)]);document.getElementById('chatInput').placeholder=x.chatPlaceholder;document.getElementById('sendBtn').textContent=x.chatSend;renderPlatforms();renderQuick();renderChat()}
+    function renderPlatforms(){document.getElementById('platformCards').innerHTML=t().platforms.map(p=>`<div class="card"><div class="gold-line"></div><div class="num">${p[0]}</div><h3>${p[1]}</h3><p>${p[2]}</p></div>`).join('')}
+    function renderQuick(){document.getElementById('quick').innerHTML=t().quickReplies.map(q=>`<button onclick="sendMessage('${q.replace(/'/g,"\\'")}')">${q}</button>`).join('')}
+    function renderChat(){const body=document.getElementById('chatBody');const list=messages.length?messages:[{role:'agent',text:t().chatWelcome}];body.innerHTML=list.map(m=>`<div class="bubble ${m.role==='user'?'user':''}">${m.text}</div>`).join('');body.scrollTop=body.scrollHeight}
+    async function sendMessage(preset){
+      const input=document.getElementById('chatInput');
+      const text=preset||input.value.trim();
+      if(!text)return;
+      messages.push({role:'user',text});
+      input.value='';
+      renderChat();
+
+      try{
+        /*
+          Production connection:
+          Create a secure backend endpoint at /api/samoor-chat.
+          That backend should call OpenAI/ChatGPT using a server-side API key.
+          Never place an API key inside this browser HTML file.
+        */
+        const response=await fetch('/api/samoor-chat',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({message:text,language:lang,brand:'ABHIN',assistant:'Samoor'})
         });
-        document.querySelectorAll("[data-placeholder]").forEach((node) => {
-          const key = node.dataset.placeholder;
-          if (active[key]) node.placeholder = active[key];
-        });
-        langToggle.textContent = language === "en" ? "AR" : "EN";
-        renderQuickReplies();
-        renderChat();
-      }
-
-      function receiveChat(text) {
-        if (!text.trim()) return;
-        conversation.push({ role: "user", text });
-        renderChat();
-        setTimeout(() => {
-          conversation.push({ role: "agent", text: copy[language].chatReply });
-          renderChat();
-        }, 400);
-      }
-
-      langToggle.addEventListener("click", () => {
-        language = language === "en" ? "ar" : "en";
-        applyLanguage();
-      });
-
-      document.getElementById("chatSend").addEventListener("click", () => {
-        const value = chatInput.value.trim();
-        chatInput.value = "";
-        receiveChat(value);
-      });
-
-      chatInput.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-          event.preventDefault();
-          const value = chatInput.value.trim();
-          chatInput.value = "";
-          receiveChat(value);
+        if(response.ok){
+          const data=await response.json();
+          messages.push({role:'agent',text:data.reply||t().chatReceived});
+        }else{
+          messages.push({role:'agent',text:samoorFallback(text)});
         }
-      });
-
-      quickReplies.addEventListener("click", (event) => {
-        const button = event.target.closest("button[data-reply]");
-        if (!button) return;
-        receiveChat(button.dataset.reply);
-      });
-
-      document.getElementById("leadForm").addEventListener("submit", (event) => {
-        event.preventDefault();
-        conversation.push({ role: "agent", text: copy[language].chatReply });
-        renderChat();
-        event.target.reset();
-      });
-
-      document.getElementById("cookieAccept").addEventListener("click", () => {
-        document.getElementById("cookieBanner").classList.add("hidden");
-      });
-
-      applyLanguage();
-    </script>
-  </body>
+      }catch(error){
+        messages.push({role:'agent',text:samoorFallback(text)});
+      }
+      renderChat();
+    }
+    function samoorFallback(text){
+      const lower=text.toLowerCase();
+      if(lang==='ar') return 'أنا Samoor. حالياً هذه نسخة معاينة، وأقدر أوجهك: للاستفسارات الرسمية استخدم نموذج التواصل، وللنسخة المنشورة سيتم ربطي بخادم ذكاء اصطناعي مباشر.';
+      if(lower.includes('contact')||lower.includes('email')||lower.includes('call')) return 'I am Samoor. For now, this preview can route your inquiry through the contact form. In production, I will connect to ABHIN’s live assistant backend and notify the team.';
+      if(lower.includes('service')||lower.includes('advisory')||lower.includes('consult')) return 'I am Samoor. ABHIN supports strategic advisory, governance, AI transformation, market expansion and partnership development. Tell me your requirement and I will help route it.';
+      if(lower.includes('partnership')) return 'I am Samoor. For partnerships, please share the organization name, country, objective and preferred collaboration model. The production assistant will forward this to the ABHIN team.';
+      return 'I am Samoor, ABHIN’s AI assistant. This preview is ready for a live backend connection. For now, I can guide visitors and collect business inquiries through the website form.';
+    }
+    document.getElementById('lang').addEventListener('change',e=>{lang=e.target.value;applyLang()});
+    document.getElementById('openChat').onclick=()=>document.getElementById('chat').classList.add('open');
+    document.getElementById('closeChat').onclick=()=>document.getElementById('chat').classList.remove('open');
+    document.getElementById('sendBtn').onclick=()=>sendMessage();
+    document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage()});
+    document.getElementById('acceptCookie').onclick=()=>document.getElementById('cookie').style.display='none';
+    document.getElementById('leadForm').onsubmit=e=>{e.preventDefault();document.getElementById('chat').classList.add('open');messages.push({role:'agent',text:'Thank you. Samoor has received your corporate inquiry. The production version can forward this to ABHIN by email, CRM, or a secure backend workflow.'});renderChat();e.target.reset()};
+    applyLang();
+  </script>
+</body>
 </html>
