@@ -67,30 +67,14 @@ async function saveConversation(payload) {
       `INSERT INTO samoor_conversations
        (session_id, visitor_name, visitor_email, visitor_company, language, user_message, assistant_reply, lead_intent)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`,
-      [
-        payload.sessionId,
-        payload.visitorName,
-        payload.visitorEmail,
-        payload.visitorCompany,
-        payload.language,
-        payload.message,
-        payload.reply,
-        payload.leadIntent,
-      ]
+      [payload.sessionId, payload.visitorName, payload.visitorEmail, payload.visitorCompany, payload.language, payload.message, payload.reply, payload.leadIntent]
     );
     if (payload.leadIntent || payload.visitorEmail) {
       await client.query(
         `INSERT INTO samoor_leads
          (session_id, visitor_name, visitor_email, visitor_company, language, requirement)
          VALUES ($1,$2,$3,$4,$5,$6)`,
-        [
-          payload.sessionId,
-          payload.visitorName,
-          payload.visitorEmail,
-          payload.visitorCompany,
-          payload.language,
-          payload.message,
-        ]
+        [payload.sessionId, payload.visitorName, payload.visitorEmail, payload.visitorCompany, payload.language, payload.message]
       );
     }
     return { stored: true };
@@ -142,8 +126,24 @@ function fallbackReply(message, language) {
   return 'Hello, I am Samoor, ABHIN’s AI assistant. I can help with company information, strategic advisory, AI transformation, governance support, partnerships, and routing inquiries to ABHIN.';
 }
 
+function diagnosticStatus() {
+  return {
+    ok: true,
+    service: 'samoor-chat',
+    openaiKeyConfigured: Boolean(process.env.OPENAI_API_KEY),
+    openaiModel: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+    databaseConfigured: Boolean(process.env.DATABASE_URL),
+    leadWebhookConfigured: Boolean(process.env.LEAD_WEBHOOK_URL),
+    nodeEnv: process.env.NODE_ENV || null,
+    timestamp: new Date().toISOString(),
+  };
+}
+
 async function generateReply(message, language, leadIntent) {
-  if (!process.env.OPENAI_API_KEY) return fallbackReply(message, language);
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    return { reply: fallbackReply(message, language), aiUsed: false, aiStatus: 'missing_openai_api_key' };
+  }
 
   const system = `You are Samoor, the official AI assistant for ABHIN, an international business, consultancy, governance, AI transformation, and strategic advisory platform based in Ajman Free Zone, UAE.
 
@@ -156,33 +156,49 @@ Your job:
 - Keep answers concise, businesslike, and helpful.
 - Respond in the visitor's language when clear. Default to English.`;
 
-  const response = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: process.env.OPENAI_MODEL || 'gpt-4.1-mini',
-      input: [
-        { role: 'system', content: system },
-        { role: 'user', content: `Language: ${language || 'en'}\nLead intent detected: ${leadIntent}\nVisitor message: ${message}` },
-      ],
-      max_output_tokens: 450,
-    }),
-  });
+  try {
+    const response = await fetch('https://api.openai.com/v1/responses', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+        input: [
+          { role: 'system', content: system },
+          { role: 'user', content: `Language: ${language || 'en'}\nLead intent detected: ${leadIntent}\nVisitor message: ${message}` },
+        ],
+        max_output_tokens: 450,
+      }),
+    });
 
-  if (!response.ok) return fallbackReply(message, language);
-  const data = await response.json();
-  return data.output_text || fallbackReply(message, language);
+    if (!response.ok) {
+      let errorText = '';
+      try { errorText = await response.text(); } catch (_) {}
+      return {
+        reply: fallbackReply(message, language),
+        aiUsed: false,
+        aiStatus: `openai_http_${response.status}`,
+        aiError: errorText.slice(0, 500),
+      };
+    }
+
+    const data = await response.json();
+    const reply = data.output_text || fallbackReply(message, language);
+    return { reply, aiUsed: Boolean(data.output_text), aiStatus: data.output_text ? 'openai_success' : 'openai_empty_response' };
+  } catch (error) {
+    return { reply: fallbackReply(message, language), aiUsed: false, aiStatus: 'openai_request_failed', aiError: error.message };
+  }
 }
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method === 'GET') return res.status(200).json(diagnosticStatus());
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -201,14 +217,17 @@ module.exports = async function handler(req, res) {
       leadIntent: detectLeadIntent(message),
     };
 
-    const reply = await generateReply(message, language, payload.leadIntent);
-    payload.reply = reply;
+    const ai = await generateReply(message, language, payload.leadIntent);
+    payload.reply = ai.reply;
 
     const storage = await saveConversation(payload).catch((error) => ({ stored: false, error: error.message }));
     const notification = await notifyLead(payload);
 
     return res.status(200).json({
-      reply,
+      reply: ai.reply,
+      aiUsed: ai.aiUsed,
+      aiStatus: ai.aiStatus,
+      aiError: ai.aiError,
       leadIntent: payload.leadIntent,
       stored: storage.stored,
       notified: notification.notified,
@@ -216,6 +235,7 @@ module.exports = async function handler(req, res) {
   } catch (error) {
     return res.status(500).json({
       error: 'Samoor service error',
+      detail: error.message,
       reply: 'Samoor is temporarily unable to process this request. Please try again shortly or submit your inquiry through the contact form.',
     });
   }
