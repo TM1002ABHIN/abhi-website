@@ -136,16 +136,12 @@ function diagnosticStatus() {
     leadWebhookConfigured: Boolean(process.env.LEAD_WEBHOOK_URL),
     nodeEnv: process.env.NODE_ENV || null,
     timestamp: new Date().toISOString(),
+    testHint: 'Open this URL with ?test=1 to run a safe live OpenAI test.',
   };
 }
 
-async function generateReply(message, language, leadIntent) {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) {
-    return { reply: fallbackReply(message, language), aiUsed: false, aiStatus: 'missing_openai_api_key' };
-  }
-
-  const system = `You are Samoor, the official AI assistant for ABHIN, an international business, consultancy, governance, AI transformation, and strategic advisory platform based in Ajman Free Zone, UAE.
+function systemPrompt() {
+  return `You are Samoor, the official AI assistant for ABHIN, an international business, consultancy, governance, AI transformation, and strategic advisory platform based in Ajman Free Zone, UAE.
 
 Your job:
 - Answer visitors professionally and warmly.
@@ -155,6 +151,13 @@ Your job:
 - Do not give legal, financial, or investment advice as final professional advice; say ABHIN can review formally.
 - Keep answers concise, businesslike, and helpful.
 - Respond in the visitor's language when clear. Default to English.`;
+}
+
+async function callOpenAI(message, language, leadIntent) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    return { reply: fallbackReply(message, language), aiUsed: false, aiStatus: 'missing_openai_api_key' };
+  }
 
   try {
     const response = await fetch('https://api.openai.com/v1/responses', {
@@ -166,7 +169,7 @@ Your job:
       body: JSON.stringify({
         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
         input: [
-          { role: 'system', content: system },
+          { role: 'system', content: systemPrompt() },
           { role: 'user', content: `Language: ${language || 'en'}\nLead intent detected: ${leadIntent}\nVisitor message: ${message}` },
         ],
         max_output_tokens: 450,
@@ -180,7 +183,7 @@ Your job:
         reply: fallbackReply(message, language),
         aiUsed: false,
         aiStatus: `openai_http_${response.status}`,
-        aiError: errorText.slice(0, 500),
+        aiError: errorText.slice(0, 1000),
       };
     }
 
@@ -192,13 +195,35 @@ Your job:
   }
 }
 
+async function liveHealthCheck() {
+  const base = diagnosticStatus();
+  if (!process.env.OPENAI_API_KEY) {
+    return { ...base, openaiLiveTest: 'skipped_missing_key' };
+  }
+  const test = await callOpenAI('Reply with exactly: Samoor AI connection OK', 'en', false);
+  return {
+    ...base,
+    openaiLiveTest: test.aiStatus,
+    openaiLiveTestAiUsed: test.aiUsed,
+    openaiLiveTestReply: test.reply,
+    openaiLiveTestError: test.aiError,
+  };
+}
+
+async function generateReply(message, language, leadIntent) {
+  return callOpenAI(message, language, leadIntent);
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method === 'GET') return res.status(200).json(diagnosticStatus());
+  if (req.method === 'GET') {
+    const wantsTest = req.query && String(req.query.test || '') === '1';
+    return res.status(200).json(wantsTest ? await liveHealthCheck() : diagnosticStatus());
+  }
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
